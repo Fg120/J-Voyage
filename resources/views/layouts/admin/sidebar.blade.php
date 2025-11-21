@@ -41,6 +41,12 @@
                                 'icon' => 'users',
                                 'active' => 'admin.users.*',
                             ],
+                            [
+                                'label' => 'Pengelola',
+                                'route' => 'admin.pengelola.index',
+                                'icon' => 'user-check',
+                                'active' => 'admin.pengelola.*',
+                            ],
                             // [
                             //     'label' => 'Users',
                             //     'icon' => '<i data-lucide="users"></i>',

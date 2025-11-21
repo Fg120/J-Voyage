@@ -6,7 +6,13 @@
             <ol class="flex items-center whitespace-nowrap">
                 @php
                     $segments = explode('.', Route::currentRouteName() ?? 'dashboard');
-                    $breadcrumbs = [['label' => 'Dashboard', 'route' => 'dashboard']];
+                    $breadcrumbs = [];
+
+                    if (auth()->user() && auth()->user()->hasRole('admin')) {
+                        $breadcrumbs[] = ['label' => 'Dashboard', 'route' => 'admin.dashboard'];
+                    } elseif (auth()->user() && auth()->user()->hasRole('pengelola')) {
+                        $breadcrumbs[] = ['label' => 'Dashboard', 'route' => 'pengelola.dashboard'];
+                    }
 
                     if (count($segments) > 0 && $segments[0] !== 'dashboard') {
                         foreach ($segments as $i => $segment) {
@@ -21,7 +27,7 @@
                 @foreach ($breadcrumbs as $crumb)
                     <li class="flex items-center text-sm {{ isset($crumb['last']) && $crumb['last'] ? 'font-semibold' : '' }} text-gray-800 dark:text-neutral-400">
                         @if (!isset($crumb['last']))
-                            <a href="{{ route($crumb['route'] ?? 'dashboard') }}" class="hover:text-blue-600">{{ $crumb['label'] }}</a>
+                            <a href="{{ route($crumb['route'] ?? '#') }}" class="hover:text-blue-600">{{ $crumb['label'] }}</a>
                         @else
                             {{ $crumb['label'] }}
                         @endif

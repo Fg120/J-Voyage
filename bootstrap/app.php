@@ -19,6 +19,18 @@ return Application::configure(basePath: dirname(__DIR__))
             'permission' => PermissionMiddleware::class,
             'role_or_permission' => RoleOrPermissionMiddleware::class,
         ]);
+
+        $middleware->redirectGuestsTo(fn() => route('login'));
+
+        $middleware->redirectUsersTo(function () {
+            $user = \Illuminate\Support\Facades\Auth::user();
+            if ($user && $user->hasRole('admin')) {
+                return route('admin.dashboard');
+            } elseif ($user && $user->hasRole('pengelola')) {
+                return route('pengelola.dashboard');
+            }
+            return route('onboarding');
+        });
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

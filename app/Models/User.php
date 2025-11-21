@@ -48,4 +48,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Relationships
+    public function pengelola()
+    {
+        return $this->hasOne(Pengelola::class);
+    }
 }

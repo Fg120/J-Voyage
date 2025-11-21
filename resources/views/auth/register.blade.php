@@ -45,7 +45,8 @@
                 <!-- Password -->
                 <div class="flex flex-col gap-1">
                     <label for="password" class="font-semibold text-sm">Kata Sandi</label>
-                    <input type="password" placeholder="Masukkan Kata Sandi" id="password" name="password" required autocomplete="new-password" class="border-gray-300 rounded-lg py-2.5 px-3 focus:border-indigo-500 focus:ring focus:ring-indigo-200 transition">
+                    <input type="password" placeholder="Masukkan Kata Sandi" id="password" name="password" required autocomplete="new-password"
+                        class="border-gray-300 rounded-lg py-2.5 px-3 focus:border-indigo-500 focus:ring focus:ring-indigo-200 transition">
                     @error('password')
                         <div class="error">{{ $message }}</div>
                     @enderror
