@@ -10,16 +10,16 @@
             <p class="opacity-80">Daftar sekarang dan mulai petualangan Anda</p>
         </div>
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('register') }}">
             @csrf
 
             <div class="flex flex-col gap-5 mb-8">
                 <!-- Email -->
                 <div class="flex flex-col gap-1">
                     <label for="nama" class="font-semibold">Nama Lengkap</label>
-                    <input type="text" placeholder="Masukkan Nama Lengkap" id="nama" name="nama" value="{{ old('nama') }}" required autofocus autocomplete="email"
+                    <input type="text" placeholder="Masukkan Nama Lengkap" id="name" name="name" value="{{ old('name') }}" required autofocus autocomplete="email"
                         class="border-gray-400 rounded-lg">
-                    @error('nama')
+                    @error('name')
                         <div class="error">{{ $message }}</div>
                     @enderror
                 </div>
@@ -53,8 +53,9 @@
 
                 <div class="flex flex-col gap-1">
                     <label for="password-confirm" class="font-semibold">Konfirmasi Kata Sandi</label>
-                    <input type="password" placeholder="Konfirmasi kata Sandi" id="password-confirm" name="password-confirm" required autocomplete="current-password" class="border-gray-400 rounded-lg">
-                    @error('password-confirm')
+                    <input type="password" placeholder="Konfirmasi kata Sandi" id="password-confirm" name="password_confirmation" required autocomplete="current-password"
+                        class="border-gray-400 rounded-lg">
+                    @error('password_confirmation')
                         <div class="error">{{ $message }}</div>
                     @enderror
                 </div>
