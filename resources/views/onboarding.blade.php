@@ -6,18 +6,13 @@
     style="background-image: url('{{ asset('assets/images/bg-heroonboarding.png') }}');">
     <div class="absolute inset-0 bg-black/40"></div>
     <div class="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-4 gap-[70px]">
-        <h1 class="text-6xl md:text-[120px] font-bold leading-tight uppercase drop-shadow-lg">
+        <h1 class="text-[45px] sm:text-[75px] md:text-[120px] font-bold leading-tight uppercase drop-shadow-lg">
             Wonderful<br>Jember
         </h1>
 
-        <p class="max-w-5xl text-lg md:text-xl  drop-shadow-md">
+        <p class="max-w-5xl text-sm sm:text-lg md:text-xl  drop-shadow-md">
             Temukan keindahan alam yang memukau, mulai dari pantai eksotis, sejuknya perkebunan, hingga pesona pegunungan. Nikmati juga dinamika kota yang modern dan kaya akan budaya. Panduan lengkap untuk petualangan Anda!
-        </p>
-
-        {{-- 4. Perbaikan Tombol --}}
-        {{-- Mengubah text-[40px] menjadi text-xl atau 2xl (40px terlalu besar untuk tombol). --}}
-        {{-- Menambah padding vertical (py-4) agar tombol lebih tebal. --}}
-        {{-- Mengubah teks menjadi lowercase agar sesuai gambar. --}}
+ 
         <button class="bg-indigo-300 hover:bg-indigo-400 transition text-neutral-900 text-xl md:text-2xl font-bold py-4 px-10 rounded-xl ">
             Mulai Perjalananmu
         </button>
@@ -29,11 +24,11 @@
 {{-- About Start --}}
 <section class="pt-[50px] w-full px-16 pb-10">
     <div class="flex flex-col items-center gap-2 mb-20">
-        <h2 class="text-[50px] font-bold" >Tentang J-Voyage</h2>
+        <h2 class="text-[30px] lg:text-[50px] font-bold" >Tentang J-Voyage</h2>
         <div class="bg-indigo-500 w-[150px] h-1">
         </div>
     </div>
-    <div class="flex gap-16 items-center justify-center">
+    <div class="flex flex-col lg:flex-row gap-16 items-center justify-center">
         <img src="{{ Vite::asset('public/assets/images/about.png') }}" alt="" class="w-[450px] xl:w-[650px] h-full">
         <div class="max-w-[600px]">
             <h5 class="font-semibold text-3xl mb-8">Misi Kami</h5>
@@ -55,10 +50,10 @@
             </div>
         </div>
     </div>
-    <div class="flex justify-center gap-16 mt-10">
-        <div class="bg-indigo-50 shadow-sm hover:bg-indigo-100 transition hover:-translate-y-2 hover:shadow-lg w-[400px] py-10 px-8 rounded-lg">
+    <div class="flex flex-col lg:flex-row justify-center items-center gap-2 lg:gap-16 mt-10 ">
+        <div class="bg-indigo-50 shadow-sm hover:bg-indigo-100 transition hover:-translate-y-2 hover:shadow-lg lg:w-[400px] py-10 px-8 rounded-lg w-[300px]">
             <img src="{{ Vite::asset('public/assets/images/bintang.png') }}" alt="" class="w-[80px] h-auto">
-            <h5 class="font-bold text-xl mt-5">Kualitas Terbaik</h5>
+            <h5 class="font-bold lg:text-xl text-md mt-5 ">Kualitas Terbaik</h5>
             <p class="text-justify opacity-80">Kami berkomitmen memberikan layanan berkualitas tinggi dengan harga terjangkau untuk semua kalangan.</p>
         </div>
         <div class="bg-indigo-50 shadow-sm hover:bg-indigo-100 transition hover:-translate-y-2 hover:shadow-lg w-[400px] py-10 px-8 rounded-lg">
@@ -86,11 +81,7 @@
     </div>
     <p class="text-center max-w-[500px] mx-auto">Jelajahi keindahan Jember dengan paket wisata pilihan yang telah kami kurasi khusus untuk Anda</p>
     <div class="container mx-auto px-4 mt-16">
-        {{-- CONTAINER SCROLL --}}
-        {{-- flex: agar elemen berjejer ke samping --}}
-        {{-- overflow-x-auto: mengaktifkan scroll horizontal --}}
-        {{-- snap-x: mengaktifkan fitur magnet (snap) --}}
-        {{-- no-scrollbar: class custom yang kita buat di atas --}}
+
         <div class="flex overflow-x-auto space-x-6 pb-8 snap-x snap-mandatory no-scrollbar">
 
             @foreach(range(1, 5) as $item)
@@ -152,7 +143,7 @@
     <div class="max-w-6xl mx-auto mt-10">
     <div class="hs-accordion-group">
       <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active" id="hs-basic-with-title-and-arrow-stretched-heading-one">
-        <button class="  hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
+        <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
           Bagaimana cara melakukan booking?
           <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
@@ -165,7 +156,7 @@
       </div>
 
       <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active" id="hs-basic-with-title-and-arrow-stretched-heading-one ">
-        <button class="  hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
+        <button class=" hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
           Apakah harga sudah termasuk akomodasi?
           <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
