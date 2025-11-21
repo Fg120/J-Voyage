@@ -23,11 +23,11 @@ class UserSeeder extends Seeder
                 'role' => 'admin',
             ],
             [
-                'name' => 'Mitra User',
-                'email' => 'mitra@example.com',
+                'name' => 'Pengelola User',
+                'email' => 'pengelola@example.com',
                 'password' => Hash::make('password'),
                 'email_verified_at' => now(),
-                'role' => 'mitra',
+                'role' => 'pengelola',
             ],
             [
                 'name' => 'Regular User',

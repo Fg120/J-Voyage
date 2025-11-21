@@ -51,6 +51,12 @@
                         <p class="text-lg text-gray-900 dark:text-white">{{ $user->email }}</p>
                     </div>
 
+                    <!-- Telepon -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Telepon</label>
+                        <p class="text-lg text-gray-900 dark:text-white">{{ $user->telepon }}</p>
+                    </div>
+
                     <!-- Roles -->
                     <div>
                         <label class="block text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Peran</label>

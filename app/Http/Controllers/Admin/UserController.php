@@ -56,6 +56,7 @@ class UserController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'telepon' => ['required', 'string', 'max:20'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'roles' => ['nullable', 'array'],
         ]);
@@ -63,6 +64,7 @@ class UserController extends Controller
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
+            'telepon' => $validated['telepon'],
             'password' => Hash::make($validated['password']),
         ]);
 
@@ -101,6 +103,7 @@ class UserController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $user->id],
+            'telepon' => ['required', 'string', 'max:20'],
             'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
             'roles' => ['nullable', 'array'],
         ]);
@@ -108,6 +111,7 @@ class UserController extends Controller
         $user->update([
             'name' => $validated['name'],
             'email' => $validated['email'],
+            'telepon' => $validated['telepon'],
         ]);
 
         if (!empty($validated['password'])) {

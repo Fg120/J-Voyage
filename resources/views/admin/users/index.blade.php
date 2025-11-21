@@ -55,6 +55,9 @@
                                 User
                             </th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                Telepon
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                                 Peran
                             </th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
@@ -86,6 +89,11 @@
                                                 {{ $user->email }}
                                             </div>
                                         </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900 dark:text-white">
+                                        {{ $user->telepon }}
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -159,7 +167,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5" class="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
+                                <td colspan="6" class="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
                                     <i data-lucide="inbox" class="size-12 mx-auto mb-2 opacity-50"></i>
                                     <p>Tidak ada user ditemukan</p>
                                 </td>

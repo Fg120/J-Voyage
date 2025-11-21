@@ -14,26 +14,10 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        // Admin Role - Full Access
-        $admin = Role::create(['name' => 'admin']);
+        $admin = Role::firstOrCreate(['name' => 'admin']);
         $admin->givePermissionTo(Permission::all());
 
-        // Mitra Role - Limited Access
-        $mitra = Role::create(['name' => 'mitra']);
-        $mitra->givePermissionTo([
-            'view_dashboard',
-            'view_mitra_dashboard',
-            'view_csr',
-            'create_csr',
-            'edit_csr',
-            'view_reports',
-        ]);
-
-        // User Role - Basic Access
-        $user = Role::create(['name' => 'user']);
-        $user->givePermissionTo([
-            'view_dashboard',
-            'view_csr',
-        ]);
+        $mitra = Role::firstOrCreate(['name' => 'pengelola']);
+        $user = Role::firstOrCreate(['name' => 'user']);
     }
 }
