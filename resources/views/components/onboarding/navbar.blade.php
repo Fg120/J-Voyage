@@ -21,9 +21,12 @@
         <a class="hover:opacity-80 hover:cursor-pointer">Tentang Kami</a>
         <a class="hover:opacity-80 hover:cursor-pointer">Wisata</a>
         <a class="hover:opacity-80 hover:cursor-pointer">FAQ</a>
-        <button class="rounded-[10px] bg-indigo-300 p-2 h-8 w-20 text-black font-bold hover:bg-indigo-400 transition hover:cursor-pointer">
+        <a href="{{ route('login') }}">
+            <button class="rounded-[10px] bg-indigo-300 p-2 h-8 w-20 text-black font-bold hover:bg-indigo-400 transition hover:cursor-pointer">
             PESAN
         </button>
+        </a>
+
       </div>
     </div>
   </nav>

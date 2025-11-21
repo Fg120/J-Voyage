@@ -1,199 +1,68 @@
-<!DOCTYPE html>
-<html lang="id">
+@extends('layouts.auth.app')
+@section('tittle')
+    Login
+@endsection
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 400px;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 28px;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 500;
-            font-size: 14px;
-        }
-
-        input[type="email"],
-        input[type="password"] {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-            transition: border-color 0.3s;
-        }
-
-        input[type="email"]:focus,
-        input[type="password"]:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 5px rgba(102, 126, 234, 0.1);
-        }
-
-        .remember-me {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        input[type="checkbox"] {
-            margin-right: 8px;
-            cursor: pointer;
-        }
-
-        .remember-me label {
-            margin: 0;
-            font-weight: 400;
-            cursor: pointer;
-        }
-
-        .btn-login {
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-
-        .btn-login:hover {
-            opacity: 0.9;
-        }
-
-        .btn-login:active {
-            opacity: 0.8;
-        }
-
-        .links {
-            margin-top: 20px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .links a {
-            color: #667eea;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .links a:hover {
-            text-decoration: underline;
-        }
-
-        .error {
-            color: #e74c3c;
-            font-size: 12px;
-            margin-top: 5px;
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                margin: 20px;
-                padding: 30px 20px;
-            }
-
-            h1 {
-                font-size: 24px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <h1>Login</h1>
-        <p class="subtitle">Masuk ke akun Anda</p>
+@section('form')
+<div class="bg-white w-[450px] h-[450px] p-8 rounded-lg text-neutral-900">
+        <div class="flex flex-col gap-1 mb-5">
+            <h1 class="text-3xl font-bold">Selamat Datang</h1>
+            <p class="opacity-80">Masuk ke akun Anda untuk melanjutkan</p>
+        </div>
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            <!-- Email -->
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="email">
+            <div class="flex flex-col gap-5 mb-2">
+                 <!-- Email -->
+            <div class="flex flex-col">
+                <label for="email" class="font-semibold">Email</label>
+                <input type="email" placeholder="nama@email.com" id="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="email" class="border-gray-400 rounded-lg">
                 @error('email')
                     <div class="error">{{ $message }}</div>
                 @enderror
             </div>
 
             <!-- Password -->
-            <div class="form-group">
-                <label for="password">Kata Sandi</label>
-                <input type="password" id="password" name="password" required autocomplete="current-password">
+            <div class="flex flex-col">
+                <label for="password" class="font-semibold">Kata Sandi</label>
+                <input type="password" placeholder="Masukkan password" id="password" name="password" required autocomplete="current-password" class="border-gray-400 rounded-lg">
                 @error('password')
                     <div class="error">{{ $message }}</div>
                 @enderror
             </div>
+            </div>
 
             <!-- Remember Me -->
-            <div class="remember-me">
-                <input type="checkbox" id="remember" name="remember">
-                <label for="remember">Ingat saya</label>
+            <div class="flex justify-between mb-5">
+                <div class="flex items-center gap-1 ">
+                <input type="checkbox" id="remember" name="remember" class="rounded cursor-pointer">
+                <label for="remember" class="text-sm">Ingat saya</label>
+                </div>
+
+                @if (Route::has('password.request'))
+                    <a href="{{ route('password.request') }}" class="text-indigo-500 font-sans font-semibold text-sm hover:text-indigo-700 transition">Lupa kata sandi?</a>
+                @endif
             </div>
 
             <!-- Login Button -->
-            <button type="submit" class="btn-login">Masuk</button>
+            <button type="submit" class="w-full text-center bg-indigo-300 py-2 hover:bg-indigo-500 transition rounded-lg font-semibold text-neutral-50"> Masuk </button>
+            <div class="flex items-center gap-2 justify-center mt-2">
+                <div class="w-[150px] bg-neutral-200 h-1">
+                </div>
+                <p class="text-sm">
+                    atau
+                </p>
+                <div class="w-[150px] bg-neutral-300 h-1">
 
-            <!-- Links -->
-            <div class="links">
-                @if (Route::has('password.request'))
-                    <a href="{{ route('password.request') }}">Lupa kata sandi?</a>
-                @endif
-
+                </div>
+            </div>
+            <div class="flex justify-center mt-2">
                 @if (Route::has('register'))
-                    <span>|</span>
-                    <a href="{{ route('register') }}">Daftar</a>
+                    <a href="{{ route('register') }}" class="text-sm  ">Belum Punya Akun? <span class="text-indigo-500 font-semibold hover:text-indigo-700 transition">Daftar Sekarang </span> </a>
                 @endif
             </div>
+
         </form>
     </div>
-</body>
-
-</html>
+@endsection
