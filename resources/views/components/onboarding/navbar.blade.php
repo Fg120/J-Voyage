@@ -4,7 +4,7 @@
         <div class="flex justify-between items-center gap-x-1">
             <a class="flex-none font-semibold text-xl text-white focus:outline-hidden focus:opacity-80" href="#" aria-label="Brand">
                 <span class="inline-flex items-center gap-x-2 text-xl font-semibold">
-                    <img class="w-10 h-auto" src="{{ Vite::asset('public/assets/images/logo.png') }}" alt="Logo">
+                    <img class="w-10 h-auto" src="{{ asset('assets/images/logo.png') }}" alt="Logo">
                     J-Voyage
                 </span>
             </a>

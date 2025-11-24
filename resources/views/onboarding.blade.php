@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="flex flex-col lg:flex-row gap-16 items-center justify-center">
-            <img src="{{ Vite::asset('public/assets/images/about.png') }}" alt="" class="w-[450px] xl:w-[650px] h-full">
+            <img src="{{ asset('/assets/images/about.png') }}" alt="" class="w-[450px] xl:w-[650px] h-full">
             <div class="max-w-[600px]">
                 <h5 class="font-semibold text-3xl mb-8">Misi Kami</h5>
                 <p class="mb-5">J-Voyage adalah platform booking wisata terpercaya yang berdedikasi untuk menghadirkan pengalaman perjalanan terbaik di Jember. Kami percaya bahwa setiap perjalanan
@@ -55,17 +55,17 @@
         </div>
         <div class="flex flex-col lg:flex-row justify-center items-center gap-2 lg:gap-16 mt-10 ">
             <div class="bg-indigo-50 shadow-sm hover:bg-indigo-100 transition hover:-translate-y-2 hover:shadow-lg lg:w-[400px] py-10 px-8 rounded-lg w-[300px]">
-                <img src="{{ Vite::asset('public/assets/images/bintang.png') }}" alt="" class="w-[80px] h-auto">
+                <img src="{{ asset('assets/images/bintang.png') }}" alt="" class="w-[80px] h-auto">
                 <h5 class="font-bold lg:text-xl text-md mt-5 ">Kualitas Terbaik</h5>
                 <p class="text-justify opacity-80">Kami berkomitmen memberikan layanan berkualitas tinggi dengan harga terjangkau untuk semua kalangan.</p>
             </div>
             <div class="bg-indigo-50 shadow-sm hover:bg-indigo-100 transition hover:-translate-y-2 hover:shadow-lg w-[400px] py-10 px-8 rounded-lg">
-                <img src="{{ Vite::asset('public/assets/images/loc-cont.png') }}" alt="" class="w-[80px] h-auto">
+                <img src="{{ asset('assets/images/loc-cont.png') }}" alt="" class="w-[80px] h-auto">
                 <h5 class="font-bold text-xl mt-5">Destinasi Eksklusif</h5>
                 <p class="text-justify opacity-80">Jelajahi tempat-tempat tersembunyi dan destinasi eksklusif yang jarang dikunjungi wisatawan.</p>
             </div>
             <div class="bg-indigo-50 shadow-sm hover:bg-indigo-100 transition hover:-translate-y-2 hover:shadow-lg w-[400px] py-10 px-8 rounded-lg">
-                <img src="{{ Vite::asset('public/assets/images/bintang.png') }}" alt="" class="w-[80px] h-auto">
+                <img src="{{ asset('assets/images/bintang.png') }}" alt="" class="w-[80px] h-auto">
                 <h5 class="font-bold text-xl mt-5">Tepat Waktu</h5>
                 <p class="text-justify opacity-80">Jadwal yang teorganisir dengan baik memastikan Anda tidak kehilangan momen berharga dalam perjalanan.</p>
             </div>
@@ -91,7 +91,7 @@
                     <div class="flex-none w-80 bg-white rounded-2xl shadow-lg overflow-hidden snap-center border border-gray-100 transition hover:shadow-xl hover:-translate-y-2">
 
                         <div class="relative h-48">
-                            <img src="{{ Vite::asset('public/assets/images/botani.png') }}" alt="Wisata" class="w-full h-full object-cover">
+                            <img src="{{ asset('assets/images/botani.png') }}" alt="Wisata" class="w-full h-full object-cover">
                             <div class="absolute top-4 right-4 bg-indigo-500/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
                                 Rp 175.000
                             </div>
