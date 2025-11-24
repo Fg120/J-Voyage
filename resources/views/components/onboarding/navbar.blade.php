@@ -88,7 +88,8 @@
                                                 Dashboard
                                             </a>
                                         @endif
-                                        <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-neutral-200 hover:bg-neutral-700 focus:outline-hidden" href="{{ route('profile.edit') }}">
+                                        <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-neutral-200 hover:bg-neutral-700 focus:outline-hidden focus:bg-neutral-700"
+                                            href="{{ route('profile.index') }}">
                                             Profile
                                         </a>
 

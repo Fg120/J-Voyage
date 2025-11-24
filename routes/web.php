@@ -51,16 +51,19 @@ Route::get('/', function () {
 })->name('onboarding');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile', function () {
+        return view('profile.index');
+    })->name('profile.index');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Pengajuan Pengelola (untuk user biasa)
-    Route::get('/pengelola', [PengelolaController::class, 'index'])->name('pengelola.index');
-    Route::get('/pengelola/create', [PengelolaController::class, 'create'])->name('pengelola.create');
-    Route::post('/pengelola', [PengelolaController::class, 'store'])->name('pengelola.store');
-    Route::get('/pengelola/edit', [PengelolaController::class, 'edit'])->name('pengelola.edit');
-    Route::put('/pengelola', [PengelolaController::class, 'update'])->name('pengelola.update');
+    Route::get('/profile/pengajuan', [PengelolaController::class, 'index'])->name('pengelola.index');
+    Route::get('/profile/pengajuan/create', [PengelolaController::class, 'create'])->name('pengelola.create');
+    Route::post('/profile/pengajuan', [PengelolaController::class, 'store'])->name('pengelola.store');
+    Route::get('/profile/pengajuan/edit', [PengelolaController::class, 'edit'])->name('pengelola.edit');
+    Route::put('/profile/pengajuan', [PengelolaController::class, 'update'])->name('pengelola.update');
 
     // API untuk dropdown desa berdasarkan kecamatan
     Route::get('/api/desa/{kecamatan_id}', [PengelolaController::class, 'getDesa']);
