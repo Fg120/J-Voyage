@@ -84,6 +84,12 @@
                                     'icon' => 'list',
                                     'active' => 'pengelola.fasilitas.*',
                                 ],
+                                [
+                                    'label' => 'Transaksi',
+                                    'route' => 'pengelola.transaksi.index',
+                                    'icon' => 'credit-card',
+                                    'active' => 'pengelola.transaksi.*',
+                                ],
                             ];
                         }
                     @endphp

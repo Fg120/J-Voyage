@@ -153,9 +153,9 @@
                             </div>
                         </div>
 
-                        <button class="w-full bg-[#6366F1] hover:bg-indigo-700 text-white font-semibold text-lg py-4 rounded-xl transition shadow-md hover:shadow-lg mb-4">
+                        <a href="{{ route('transaksi.create', $destinasi->id) }}" class="block w-full bg-[#6366F1] hover:bg-indigo-700 text-white font-semibold text-lg py-4 rounded-xl transition shadow-md hover:shadow-lg mb-4 text-center">
                             Pesan Sekarang
-                        </button>
+                        </a>
 
                         <p class="text-center text-[#737373] text-xs">
                             Pembayaran aman dan terpercaya
