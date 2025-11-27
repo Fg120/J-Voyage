@@ -14,71 +14,83 @@
                 untuk petualangan Anda!
             </p>
 
-            <button class="bg-indigo-300 hover:bg-indigo-400 transition text-neutral-900 text-xl md:text-2xl font-bold py-4 px-10 rounded-xl ">
-                Mulai Perjalananmu
-            </button>
+            <a href=" ">
+                <button class="bg-indigo-300 hover:bg-indigo-400 transition text-neutral-900 text sm:text-xl md:text-2xl font-bold py-4 px-10 rounded-xl ">
+                    Mulai Perjalananmu
+                </button>
+            </a>
         </div>
     </section>
 
     {{-- hero end --}}
 
     {{-- About Start --}}
-    <section class="pt-[50px] w-full px-16 pb-10">
-        <div class="flex flex-col items-center gap-2 mb-20">
-            <h2 class="text-[30px] lg:text-[50px] font-bold">Tentang J-Voyage</h2>
-            <div class="bg-indigo-500 w-[150px] h-1">
-            </div>
+    <section class="pt-[50px] w-full px-16 pb-10" >
+        <div class="mt-[100px]" data-aos="fade-up"
+     data-aos-anchor-placement="top-center" data-aos-duration="1000" data-aos-once="true">
+ <div class="flex flex-col items-center gap-2 mb-20">
+        <h2 class="text-[24px] sm:text-[35px] lg:text-[50px] font-bold text-nowrap text-center" >Tentang J-Voyage</h2>
+        <div class="bg-indigo-500 w-[150px] h-1">
         </div>
-        <div class="flex flex-col lg:flex-row gap-16 items-center justify-center">
-            <img src="{{ asset('/assets/images/about.png') }}" alt="" class="w-[450px] xl:w-[650px] h-full">
-            <div class="max-w-[600px]">
-                <h5 class="font-semibold text-3xl mb-8">Misi Kami</h5>
-                <p class="mb-5">J-Voyage adalah platform booking wisata terpercaya yang berdedikasi untuk menghadirkan pengalaman perjalanan terbaik di Jember. Kami percaya bahwa setiap perjalanan
-                    adalah cerita yang menunggu untuk ditulis.</p>
-                <p class="mb-20">Dengan tim profesional dan berpengalaman, kami memastikan setiap detail perjalanan Anda direncanakan dengan sempurna, dari akomodasi hingga destinasi wisata yang
-                    menakjubkan.</p>
-                <div class="flex gap-16 justify-center">
-                    <div class="flex flex-col items-center">
-                        <p class="text-2xl font-bold text-indigo-500 ">500+</p>
-                        <p>Happy Travelers</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <p class="text-2xl font-bold text-indigo-500 ">50+</p>
-                        <p>Destinations</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <p class="text-2xl font-bold text-indigo-500 ">5★</p>
-                        <p>Rating</p>
-                    </div>
+    </div>
+    <div class="flex flex-col lg:flex-row gap-16 items-center justify-center">
+        <img src="{{ asset('/assets/images/about.png') }}" alt="" class="w-[450px] xl:w-[650px] h-full">
+        <div class="max-w-[600px]">
+            <h5 class="font-semibold text-xl lg:text-3xl mb-8 text-center">Misi Kami</h5>
+            <p class="mb-5 text-center max-w-[300px] md:max-w-full mx-auto">J-Voyage adalah platform booking wisata terpercaya yang berdedikasi untuk menghadirkan pengalaman perjalanan terbaik di Jember. Kami percaya bahwa setiap perjalanan adalah cerita yang menunggu untuk ditulis.</p>
+            <p class="mb-20 text-center max-w-[300px] md:max-w-full mx-auto">Dengan tim profesional dan berpengalaman, kami memastikan setiap detail perjalanan Anda direncanakan dengan sempurna, dari akomodasi hingga destinasi wisata yang menakjubkan.</p>
+            <div class="flex gap-16 justify-center flex-wrap">
+                <div class="flex flex-col items-center">
+                    <p class="text-2xl font-bold text-indigo-500 ">500+</p>
+                    <p>Happy Travelers</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <p class="text-2xl font-bold text-indigo-500 ">50+</p>
+                    <p>Destinations</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <p class="text-2xl font-bold text-indigo-500 ">5★</p>
+                    <p>Rating</p>
                 </div>
             </div>
         </div>
-        <div class="flex flex-col lg:flex-row justify-center items-center gap-2 lg:gap-16 mt-10 ">
-            <div class="bg-indigo-50 shadow-sm hover:bg-indigo-100 transition hover:-translate-y-2 hover:shadow-lg lg:w-[400px] py-10 px-8 rounded-lg w-[300px]">
-                <img src="{{ asset('assets/images/bintang.png') }}" alt="" class="w-[80px] h-auto">
-                <h5 class="font-bold lg:text-xl text-md mt-5 ">Kualitas Terbaik</h5>
-                <p class="text-justify opacity-80">Kami berkomitmen memberikan layanan berkualitas tinggi dengan harga terjangkau untuk semua kalangan.</p>
-            </div>
-            <div class="bg-indigo-50 shadow-sm hover:bg-indigo-100 transition hover:-translate-y-2 hover:shadow-lg w-[400px] py-10 px-8 rounded-lg">
-                <img src="{{ asset('assets/images/loc-cont.png') }}" alt="" class="w-[80px] h-auto">
-                <h5 class="font-bold text-xl mt-5">Destinasi Eksklusif</h5>
-                <p class="text-justify opacity-80">Jelajahi tempat-tempat tersembunyi dan destinasi eksklusif yang jarang dikunjungi wisatawan.</p>
-            </div>
-            <div class="bg-indigo-50 shadow-sm hover:bg-indigo-100 transition hover:-translate-y-2 hover:shadow-lg w-[400px] py-10 px-8 rounded-lg">
-                <img src="{{ asset('assets/images/bintang.png') }}" alt="" class="w-[80px] h-auto">
-                <h5 class="font-bold text-xl mt-5">Tepat Waktu</h5>
-                <p class="text-justify opacity-80">Jadwal yang teorganisir dengan baik memastikan Anda tidak kehilangan momen berharga dalam perjalanan.</p>
-            </div>
-
+    </div>
         </div>
-    </section>
+
+    <div class="flex  justify-center items-center gap-2 lg:gap-16 mt-10 flex-wrap " >
+        <div class="bg-indigo-50 flex-none shadow-sm hover:bg-indigo-100 transition hover:-translate-y-2 hover:shadow-lg lg:w-[400px] py-10 px-8 rounded-lg w-[300px]" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="1000" data-aos-once="true">
+            <img src="{{ asset('/assets/images/bintang.png') }}" alt="" class="w-[65px] lg:w-[80px] h-auto mx-auto lg:mx-0">
+            <h5 class="font-bold lg:text-xl text-md mt-5 lg:text-start text-center">Kualitas Terbaik</h5>
+            <p class="text-center lg:text-justify opacity-80 text-sm md:text-[17px] ">Kami berkomitmen memberikan layanan berkualitas tinggi dengan harga terjangkau untuk semua kalangan.</p>
+        </div>
+        <div class="bg-indigo-50 flex-none shadow-sm hover:bg-indigo-100 transition hover:-translate-y-2 hover:shadow-lg lg:w-[400px] py-10 px-8 rounded-lg w-[300px]" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="1000" data-aos-once="true">
+            <img src="{{ asset('/assets/images/loc-cont.png') }}" alt="" class="w-[65px] lg:w-[80px] h-auto mx-auto lg:mx-0">
+            <h5 class="font-bold lg:text-xl text-md mt-5 lg:text-start text-center">Destinasi Eksklusif</h5>
+            <p class="text-center lg:text-justify opacity-80 text-sm md:text-[17px] ">Jelajahi tempat-tempat tersembunyi dan destinasi eksklusif yang jarang dikunjungi wisatawan.</p>
+        </div>
+        <div class="bg-indigo-50 flex-none shadow-sm hover:bg-indigo-100 transition hover:-translate-y-2 hover:shadow-lg lg:w-[400px] py-10 px-8 rounded-lg w-[300px]" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="1000" data-aos-once="true">
+            <img src="{{ asset('/assets/images/time.png') }}" alt="" class="w-[65px] lg:w-[80px] h-auto mx-auto lg:mx-0">
+            <h5 class="font-bold lg:text-xl text-md mt-5 lg:text-start text-center">Tepat Waktu</h5>
+            <p class="text-center lg:text-justify opacity-80 text-sm md:text-[17px] ">Jadwal yang teorganisir dengan baik memastikan Anda tidak kehilangan momen berharga dalam perjalanan.</p>
+        </div>
+
+
+    </div>
+</section>
     {{-- About End --}}
 
 
     {{-- Destinasi Start --}}
-    <section class="mt-[100px]">
-        <div class="flex flex-col items-center gap-2 mb-16">
-            <h2 class="text-[50px] font-bold">Destinasi Wisata Populer</h2>
+    <section class="mt-[100px]" data-aos="fade-up"
+     data-aos-anchor-placement="top-center" data-aos-duration="1000" data-aos-once="true">
+        <div class="flex flex-col items-center gap-2 mb-16" >
+           <h2 class="text-[24px] sm:text-[35px] lg:text-[50px] font-bold text-center" >Destinasi Wisata Populer</h2>
             <div class="bg-indigo-500 w-[150px] h-1">
             </div>
         </div>
@@ -139,133 +151,84 @@
     {{-- Destinasi End --}}
 
     {{-- FAQ Start --}}
-    <div class="mt-[100px] ">
-        <div class="flex flex-col items-center gap-2 mb-10">
-            <h2 class="text-[50px] font-bold">JAWABAN ATAS PERTANYAAN ANDA</h2>
-            <div class="bg-indigo-500 w-[150px] h-1">
-            </div>
+   <div class="mt-[100px] " data-aos="fade-up"
+     data-aos-anchor-placement="top-center" data-aos-duration="1000" data-aos-once="true">
+     <div class="flex flex-col items-center gap-2 mb-10">
+        <h2 class="text-[24px] sm:text-[35px] lg:text-[50px] font-bold text-center" >JAWABAN ATAS PERTANYAAN ANDA</h2>
+        <div class="bg-indigo-500 w-[150px] h-1">
         </div>
-        <p class="text-center max-w-[500px] mx-auto">Temukan jawaban untuk pertanyaan umum seputar layanan J-Voyage</p>
+    </div>
+    <p class="text-center max-w-[500px] mx-auto">Temukan jawaban untuk pertanyaan umum seputar layanan J-Voyage</p>
 
 
-        <div class="max-w-6xl mx-auto mt-10">
-            <div class="hs-accordion-group">
-                <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active"
-                    id="hs-basic-with-title-and-arrow-stretched-heading-one">
-                    <button
-                        class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400"
-                        aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-                        Bagaimana cara melakukan booking?
-                        <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                        <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m18 15-6-6-6 6" />
-                        </svg>
-                    </button>
-                    <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region"
-                        aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-                        <p class="text-gray-800 dark:text-neutral-200">
-                            ...
-                        </p>
-                    </div>
-                </div>
-
-                <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active"
-                    id="hs-basic-with-title-and-arrow-stretched-heading-one ">
-                    <button
-                        class=" hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400"
-                        aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-                        Apakah harga sudah termasuk akomodasi?
-                        <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                        <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m18 15-6-6-6 6" />
-                        </svg>
-                    </button>
-                    <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region"
-                        aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-                        <p class="text-gray-800 dark:text-neutral-200">
-                            ...
-                        </p>
-                    </div>
-                </div>
-
-                <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active"
-                    id="hs-basic-with-title-and-arrow-stretched-heading-one">
-                    <button
-                        class="  hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400"
-                        aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-                        Apakah bisa reschedule atau refund?
-                        <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                        <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m18 15-6-6-6 6" />
-                        </svg>
-                    </button>
-                    <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region"
-                        aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-                        <p class="text-gray-800 dark:text-neutral-200">
-                            ...
-                        </p>
-                    </div>
-                </div>
-
-                <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active"
-                    id="hs-basic-with-title-and-arrow-stretched-heading-one">
-                    <button
-                        class="  hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400"
-                        aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-                        Apakah tersedia guide berbahasa asing?
-                        <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                        <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m18 15-6-6-6 6" />
-                        </svg>
-                    </button>
-                    <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region"
-                        aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-                        <p class="text-gray-800 dark:text-neutral-200">
-                            ...
-                        </p>
-                    </div>
-                </div>
-
-                <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active"
-                    id="hs-basic-with-title-and-arrow-stretched-heading-one">
-                    <button
-                        class="  hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400"
-                        aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-                        Apa saja yang perlu dibawa?
-                        <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                        <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m18 15-6-6-6 6" />
-                        </svg>
-                    </button>
-                    <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region"
-                        aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-                        <p class="text-gray-800 dark:text-neutral-200">
-                            ...
-                        </p>
-                    </div>
-                </div>
-
-            </div>
+    <div class="max-w-6xl mx-auto mt-10">
+    <div class="hs-accordion-group">
+      <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active" id="hs-basic-with-title-and-arrow-stretched-heading-one">
+        <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
+          Bagaimana cara melakukan booking?
+          <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+        </button>
+        <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
+          <p class="text-gray-800 dark:text-neutral-200">
+           ...
+          </p>
         </div>
+      </div>
+
+      <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active" id="hs-basic-with-title-and-arrow-stretched-heading-one ">
+        <button class=" hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
+          Apakah harga sudah termasuk akomodasi?
+          <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+        </button>
+        <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
+          <p class="text-gray-800 dark:text-neutral-200">
+           ...
+          </p>
+        </div>
+      </div>
+
+     <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active" id="hs-basic-with-title-and-arrow-stretched-heading-one">
+        <button class="  hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
+         Apakah bisa reschedule atau refund?
+          <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+        </button>
+        <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
+          <p class="text-gray-800 dark:text-neutral-200">
+           ...
+          </p>
+        </div>
+      </div>
+
+      <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active" id="hs-basic-with-title-and-arrow-stretched-heading-one">
+        <button class="  hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
+          Apakah tersedia guide berbahasa asing?
+          <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+        </button>
+        <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
+          <p class="text-gray-800 dark:text-neutral-200">
+           ...
+          </p>
+        </div>
+      </div>
+
+     <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active" id="hs-basic-with-title-and-arrow-stretched-heading-one">
+        <button class="  hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
+          Apa saja yang perlu dibawa?
+          <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+        </button>
+        <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
+          <p class="text-gray-800 dark:text-neutral-200">
+           ...
+          </p>
+        </div>
+      </div>
+
+  </div>
+</div>
         {{-- FAQ End --}}
     @endsection
