@@ -51,10 +51,22 @@ Route::prefix('pengelola')->name('pengelola.')->middleware(['auth', 'role:pengel
     // Highlights & Fasilitas
     Route::resource('highlight', \App\Http\Controllers\Pengelola\HighlightController::class)->except(['create', 'edit', 'show']);
     Route::resource('fasilitas', \App\Http\Controllers\Pengelola\FasilitasController::class)->except(['create', 'edit', 'show']);
+
+    // Transaksi Manager
+    Route::get('/transaksi', [\App\Http\Controllers\Pengelola\TransaksiController::class, 'index'])->name('transaksi.index');
+    Route::get('/transaksi/{id}', [\App\Http\Controllers\Pengelola\TransaksiController::class, 'show'])->name('transaksi.show');
+    Route::post('/transaksi/{id}/approve', [\App\Http\Controllers\Pengelola\TransaksiController::class, 'approve'])->name('transaksi.approve');
+    Route::post('/transaksi/{id}/reject', [\App\Http\Controllers\Pengelola\TransaksiController::class, 'reject'])->name('transaksi.reject');
 });
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('onboarding');
 Route::get('/destinasi/{id}', [\App\Http\Controllers\HomeController::class, 'show'])->name('destinasi.show');
+
+// Public Transaction Routes
+Route::get('/destinasi/{id}/pesan', [\App\Http\Controllers\TransaksiController::class, 'create'])->name('transaksi.create');
+Route::post('/destinasi/{id}/pesan', [\App\Http\Controllers\TransaksiController::class, 'store'])->name('transaksi.store');
+Route::get('/transaksi/{id}/pembayaran', [\App\Http\Controllers\TransaksiController::class, 'payment'])->name('transaksi.payment');
+Route::post('/transaksi/{id}/bayar', [\App\Http\Controllers\TransaksiController::class, 'processPayment'])->name('transaksi.processPayment');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', function () {
@@ -63,6 +75,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile/riwayat', [\App\Http\Controllers\TransaksiController::class, 'history'])->name('profile.history');
 
     // Pengajuan Pengelola (untuk user biasa)
     Route::get('/profile/pengajuan', [PengelolaController::class, 'index'])->name('pengelola.index');

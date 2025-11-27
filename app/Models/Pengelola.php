@@ -65,6 +65,11 @@ class Pengelola extends Model
         return $this->hasMany(Fasilitas::class);
     }
 
+    public function transaksi()
+    {
+        return $this->hasMany(Transaksi::class);
+    }
+
     // Scopes
     public function scopePending($query)
     {
