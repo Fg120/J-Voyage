@@ -28,75 +28,64 @@
                     @php
                         $currentRoute = Route::currentRouteName();
 
-                        $menus = [
-                            [
-                                'label' => 'Dashboard',
-                                'route' => 'admin.dashboard',
-                                'icon' => 'layout-dashboard',
-                                'active' => 'admin.dashboard',
-                            ],
-                            [
-                                'label' => 'Users',
-                                'route' => 'admin.users.index',
-                                'icon' => 'users',
-                                'active' => 'admin.users.*',
-                            ],
-                            [
-                                'label' => 'Pengelola',
-                                'route' => 'admin.pengelola.index',
-                                'icon' => 'user-check',
-                                'active' => 'admin.pengelola.*',
-                            ],
-                            // [
-                            //     'label' => 'Users',
-                            //     'icon' => '<i data-lucide="users"></i>',
-                            //     'permission' => 'view users',
-                            //     'children' => [
-                            //         [
-                            //             'label' => 'All Users',
-                            //             'route' => 'users.index',
-                            //             'permission' => 'view users',
-                            //         ],
-                            //         [
-                            //             'label' => 'Create',
-                            //             'route' => 'users.create',
-                            //             'permission' => 'create users',
-                            //         ],
-                            //         [
-                            //             'label' => 'Roles',
-                            //             'route' => 'roles.index',
-                            //             'permission' => 'manage roles',
-                            //         ],
-                            //     ],
-                            // ],
-                            // [
-                            //     'label' => 'Projects',
-                            //     'icon' => '<rect width="20" height="14" x="2" y="7" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />',
-                            //     'permission' => 'view projects',
-                            //     'children' => [
-                            //         [
-                            //             'label' => 'All Projects',
-                            //             'route' => 'projects.index',
-                            //         ],
-                            //         [
-                            //             'label' => 'Create',
-                            //             'route' => 'projects.create',
-                            //             'permission' => 'create projects',
-                            //         ],
-                            //     ],
-                            // ],
-                            // [
-                            //     'label' => 'Calendar',
-                            //     'route' => 'calendar.index',
-                            //     'icon' =>
-                            //         '<rect width="18" height="18" x="3" y="4" rx="2" ry="2" /><line x1="16" x2="16" y1="2" y2="6" /><line x1="8" x2="8" y1="2" y2="6" /><line x1="3" x2="21" y1="10" y2="10" /><path d="M8 14h.01" /><path d="M12 14h.01" /><path d="M16 14h.01" /><path d="M8 18h.01" /><path d="M12 18h.01" /><path d="M16 18h.01" />',
-                            // ],
-                            // [
-                            //     'label' => 'Documentation',
-                            //     'route' => 'documentation',
-                            //     'icon' => '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />',
-                            // ],
-                        ];
+                        $role = auth()->user()->roles->pluck('name')->first();
+                        $menus = [];
+
+                        if ($role === 'admin') {
+                            $menus = [
+                                [
+                                    'label' => 'Dashboard',
+                                    'route' => 'admin.dashboard',
+                                    'icon' => 'layout-dashboard',
+                                    'active' => 'admin.dashboard',
+                                ],
+                                [
+                                    'label' => 'Users',
+                                    'route' => 'admin.users.index',
+                                    'icon' => 'users',
+                                    'active' => 'admin.users.*',
+                                ],
+                                [
+                                    'label' => 'Pengelola',
+                                    'route' => 'admin.pengelola.index',
+                                    'icon' => 'user-check',
+                                    'active' => 'admin.pengelola.*',
+                                ],
+                            ];
+                        } elseif ($role === 'pengelola') {
+                            $menus = [
+                                [
+                                    'label' => 'Dashboard',
+                                    'route' => 'pengelola.dashboard',
+                                    'icon' => 'layout-dashboard',
+                                    'active' => 'pengelola.dashboard',
+                                ],
+                                // [
+                                //     'label' => 'Profile',
+                                //     'route' => 'profile.show',
+                                //     'icon' => 'user',
+                                //     'active' => 'profile.*',
+                                // ],
+                                [
+                                    'label' => 'Profile Usaha',
+                                    'route' => 'pengelola.profile.index',
+                                    'icon' => 'store',
+                                    'active' => 'pengelola.profile.*',
+                                ],
+                                [
+                                    'label' => 'Highlights',
+                                    'route' => 'pengelola.highlight.index',
+                                    'icon' => 'star',
+                                    'active' => 'pengelola.highlight.*',
+                                ],
+                                [
+                                    'label' => 'Fasilitas',
+                                    'route' => 'pengelola.fasilitas.index',
+                                    'icon' => 'list',
+                                    'active' => 'pengelola.fasilitas.*',
+                                ],
+                            ];
+                        }
                     @endphp
 
                     @foreach ($menus as $menu)

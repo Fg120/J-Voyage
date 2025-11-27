@@ -29,6 +29,10 @@ class Pengelola extends Model
         'catatan_admin',
         'status',
         'verified_at',
+        'harga',
+        'nomor_rekening',
+        'nama_bank',
+        'nama_pemilik_rekening',
     ];
 
     protected $casts = [
@@ -49,6 +53,16 @@ class Pengelola extends Model
     public function desa()
     {
         return $this->belongsTo(Desa::class);
+    }
+
+    public function highlights()
+    {
+        return $this->hasMany(Highlight::class);
+    }
+
+    public function fasilitas()
+    {
+        return $this->hasMany(Fasilitas::class);
     }
 
     // Scopes

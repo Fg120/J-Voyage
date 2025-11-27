@@ -42,13 +42,19 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
 // PENGELOLA ROUTES
 Route::prefix('pengelola')->name('pengelola.')->middleware(['auth', 'role:pengelola'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    // Manajemen User
+    
+    // Profile Usaha
+    Route::get('/profile', [\App\Http\Controllers\Pengelola\ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/edit', [\App\Http\Controllers\Pengelola\ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [\App\Http\Controllers\Pengelola\ProfileController::class, 'update'])->name('profile.update');
 
+    // Highlights & Fasilitas
+    Route::resource('highlight', \App\Http\Controllers\Pengelola\HighlightController::class)->except(['create', 'edit', 'show']);
+    Route::resource('fasilitas', \App\Http\Controllers\Pengelola\FasilitasController::class)->except(['create', 'edit', 'show']);
 });
 
-Route::get('/', function () {
-    return view('onboarding');
-})->name('onboarding');
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('onboarding');
+Route::get('/destinasi/{id}', [\App\Http\Controllers\HomeController::class, 'show'])->name('destinasi.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', function () {

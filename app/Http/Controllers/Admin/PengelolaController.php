@@ -36,8 +36,7 @@ class PengelolaController extends Controller
             'catatan_admin' => null,
         ]);
 
-        // Assign role pengelola ke user
-        $pengelola->user->assignRole('pengelola');
+        $pengelola->user->syncRoles(['pengelola']);
 
         return redirect()->route('admin.pengelola.show', $pengelola)
             ->with('success', 'Pengajuan berhasil disetujui!');
@@ -70,8 +69,7 @@ class PengelolaController extends Controller
             'catatan_admin' => $request->catatan_admin,
         ]);
 
-        // Remove role pengelola dari user
-        $pengelola->user->removeRole('pengelola');
+        $pengelola->user->syncRoles(['user']);
 
         return redirect()->route('admin.pengelola.show', $pengelola)
             ->with('success', 'Pengelola berhasil diblokir.');
@@ -84,8 +82,7 @@ class PengelolaController extends Controller
             'catatan_admin' => null,
         ]);
 
-        // Assign kembali role pengelola
-        $pengelola->user->assignRole('pengelola');
+        $pengelola->user->syncRoles(['pengelola']);
 
         return redirect()->route('admin.pengelola.show', $pengelola)
             ->with('success', 'Pengelola berhasil dibuka blokirnya.');
