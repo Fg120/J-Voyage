@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class=" scroll-smooth">
 
 <head>
     <meta charset="utf-8">
@@ -18,7 +18,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans text-gray-900 antialiased bg-neutral-100">
+<body class="font-sans text-gray-900 antialiased bg-neutral-100 " >
     @include('components.onboarding.navbar')
     @yield('content')
     @include('components.onboarding.footer')

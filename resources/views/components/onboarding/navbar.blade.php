@@ -1,9 +1,9 @@
 <!-- ========== HEADER ========== -->
 <header class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full bg-neutral-900 border-b border-neutral-700 sticky top-0 shadow-md">
-    <nav class="relative max-w-[85rem] w-full mx-auto md:flex md:items-center md:justify-between md:gap-3 py-2 px-4 sm:px-6 lg:px-8">
+    <nav class="relative max-w-[85rem] w-full mx-auto md:flex md:items-center md:justify-between md:gap-3 py-4 px-4 sm:px-6 lg:px-8 ">
         <div class="flex justify-between items-center gap-x-1">
-            <a class="flex-none font-semibold text-xl text-white focus:outline-hidden focus:opacity-80" href="#" aria-label="Brand">
-                <span class="inline-flex items-center gap-x-2 text-xl font-semibold">
+            <a class="flex-none font-semibold text-xl text-white focus:outline-hidden focus:opacity-80 cursor-pointer" href="#" aria-label="Brand" href="/" >
+                <span class="inline-flex items-center gap-x-2 text-xl font-semibold" >
                     <img class="w-10 h-auto" src="{{ asset('assets/images/logo.png') }}" alt="Logo">
                     J-Voyage
                 </span>
@@ -36,20 +36,20 @@
                 <div class="py-2 md:py-0 flex flex-col md:flex-row md:items-center gap-0.5 md:gap-1">
                     <div class="grow">
                         <div class="flex flex-col md:flex-row md:justify-end md:items-center gap-0.5 md:gap-1">
-                            <a class="p-2 flex items-center text-sm text-white hover:bg-neutral-700 rounded-lg focus:outline-hidden {{ request()->is('/') ? 'font-bold text-indigo-500 border-b-4 border-indigo-500' : '' }}"
+                            <a class="p-2 flex items-center text-sm text-white hover:bg-neutral-700 rounded-lg focus:outline-hidden"
                                 href="#">
                                 Beranda
                             </a>
 
-                            <a class="p-2 flex items-center text-sm text-white hover:bg-neutral-700 rounded-lg focus:outline-hidden" href="#">
+                            <a class="p-2 flex items-center text-sm text-white hover:bg-neutral-700 rounded-lg focus:outline-hidden" href="/#tentang">
                                 Tentang Kami
                             </a>
 
-                            <a class="p-2 flex items-center text-sm text-white hover:bg-neutral-700 rounded-lg focus:outline-hidden" href="#">
+                            <a class="p-2 flex items-center text-sm text-white hover:bg-neutral-700 rounded-lg focus:outline-hidden" href="/#wisata">
                                 Wisata
                             </a>
 
-                            <a class="p-2 flex items-center text-sm text-white hover:bg-neutral-700 rounded-lg focus:outline-hidden" href="#">
+                            <a class="p-2 flex items-center text-sm text-white hover:bg-neutral-700 rounded-lg focus:outline-hidden" href="/#faq">
                                 FAQ
                             </a>
                         </div>

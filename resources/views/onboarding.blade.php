@@ -25,7 +25,7 @@
     {{-- hero end --}}
 
     {{-- About Start --}}
-    <section class="pt-[50px] w-full px-16 pb-10" >
+    <section class="pt-[50px] w-full px-16 pb-10" id="tentang">
         <div class="mt-[100px]" data-aos="fade-up"
      data-aos-anchor-placement="top-center" data-aos-duration="1000" data-aos-once="true">
  <div class="flex flex-col items-center gap-2 mb-20">
@@ -87,7 +87,7 @@
 
 
     {{-- Destinasi Start --}}
-    <section class="mt-[100px]" data-aos="fade-up"
+    <section class="mt-[100px]" data-aos="fade-up" id="wisata"
      data-aos-anchor-placement="top-center" data-aos-duration="1000" data-aos-once="true">
         <div class="flex flex-col items-center gap-2 mb-16" >
            <h2 class="text-[24px] sm:text-[35px] lg:text-[50px] font-bold text-center" >Destinasi Wisata Populer</h2>
@@ -151,7 +151,7 @@
     {{-- Destinasi End --}}
 
     {{-- FAQ Start --}}
-   <div class="mt-[100px] " data-aos="fade-up"
+   <div class="mt-[100px] " data-aos="fade-up" id="faq"
      data-aos-anchor-placement="top-center" data-aos-duration="1000" data-aos-once="true">
      <div class="flex flex-col items-center gap-2 mb-10">
         <h2 class="text-[24px] sm:text-[35px] lg:text-[50px] font-bold text-center" >JAWABAN ATAS PERTANYAAN ANDA</h2>
