@@ -14,11 +14,22 @@
                 untuk petualangan Anda!
             </p>
 
-            <a href=" ">
+            @auth
+                    @if(Auth::user()->hasRole('user'))
+                        <a href="{{ route('destinasi.showmore') }}">
                 <button class="bg-indigo-300 hover:bg-indigo-400 transition text-neutral-900 text sm:text-xl md:text-2xl font-bold py-4 px-10 rounded-xl ">
                     Mulai Perjalananmu
                 </button>
             </a>
+                    @endif
+                @else
+                    <a href="{{ route('login') }}">
+                <button class="bg-indigo-300 hover:bg-indigo-400 transition text-neutral-900 text sm:text-xl md:text-2xl font-bold py-4 px-10 rounded-xl ">
+                    Mulai Perjalananmu
+                </button>
+            </a>
+                @endauth
+
         </div>
     </section>
 
@@ -100,7 +111,7 @@
             <div class="flex overflow-x-auto space-x-6 pb-8 snap-x snap-mandatory no-scrollbar">
 
                 @foreach ($destinasi as $item)
-                    <div class="flex-none w-80 bg-white rounded-2xl shadow-lg overflow-hidden snap-center border border-gray-100 transition hover:shadow-xl hover:-translate-y-2">
+                    <div class="flex-none w-80 h-96 bg-white rounded-2xl shadow-lg overflow-hidden snap-center border border-gray-100 transition hover:shadow-lg hover:shadow-indigo-500 hover:-translate-y-1 ">
 
                         <div class="relative h-48">
                             @if($item->foto_wisata)
@@ -145,6 +156,29 @@
                         </div>
                     </div>
                 @endforeach
+
+                @auth
+                    @if(Auth::user()->hasRole('user'))
+                        <a href="{{ route('destinasi.showmore') }}" class="">
+                        <div class="flex-none w-80 h-96 bg-white rounded-2xl shadow-lg overflow-hidden snap-center border border-gray-100 transition  hover:shadow-lg hover:shadow-indigo-500  hover:-translate-y-1" >
+                                <div class="flex flex-col items-center justify-center h-full gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-right-icon lucide-circle-chevron-right"><circle cx="12" cy="12" r="10"/><path d="m10 8 4 4-4 4"/></svg>
+                                    <p class="font-semibold">Lihat Selengkapnya</p>
+                                </div>
+                            </div>
+                        </a>
+                    @endif
+                @else
+                    <a href="{{ route('login') }}" class="">
+                        <div class="flex-none w-80 h-96 bg-white rounded-2xl shadow-lg overflow-hidden snap-center border border-gray-100 transition  hover:shadow-lg hover:shadow-indigo-500  hover:-translate-y-1" >
+                                <div class="flex flex-col items-center justify-center h-full gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-right-icon lucide-circle-chevron-right"><circle cx="12" cy="12" r="10"/><path d="m10 8 4 4-4 4"/></svg>
+                                    <p class="font-semibold">Lihat Selengkapnya</p>
+                                </div>
+                        </div>
+                    </a>
+                @endauth
+
             </div>
         </div>
     </section>

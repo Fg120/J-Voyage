@@ -42,7 +42,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
 // PENGELOLA ROUTES
 Route::prefix('pengelola')->name('pengelola.')->middleware(['auth', 'role:pengelola'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    
+
     // Profile Usaha
     Route::get('/profile', [\App\Http\Controllers\Pengelola\ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile/edit', [\App\Http\Controllers\Pengelola\ProfileController::class, 'edit'])->name('profile.edit');
@@ -60,7 +60,9 @@ Route::prefix('pengelola')->name('pengelola.')->middleware(['auth', 'role:pengel
 });
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('onboarding');
+Route::get('/destinasi',  [\App\Http\Controllers\HomeController::class, 'showmore'] )->name('destinasi.showmore');
 Route::get('/destinasi/{id}', [\App\Http\Controllers\HomeController::class, 'show'])->name('destinasi.show');
+
 
 // Public Transaction Routes
 Route::get('/destinasi/{id}/pesan', [\App\Http\Controllers\TransaksiController::class, 'create'])->name('transaksi.create');
@@ -86,6 +88,7 @@ Route::middleware('auth')->group(function () {
 
     // API untuk dropdown desa berdasarkan kecamatan
     Route::get('/api/desa/{kecamatan_id}', [PengelolaController::class, 'getDesa']);
+
 });
 
 require __DIR__ . '/auth.php';

@@ -104,7 +104,7 @@
                             </div>
                         @else
                             <a href="{{ route('login') }}" class="py-2 px-2.5 inline-flex items-center font-medium text-sm rounded-lg bg-indigo-300 text-black hover:bg-indigo-400">
-                                PESAN
+                                LOGIN
                             </a>
                         @endauth
                     </div>

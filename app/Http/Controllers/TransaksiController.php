@@ -51,7 +51,7 @@ class TransaksiController extends Controller
     public function payment($id)
     {
         $transaksi = Transaksi::with('pengelola')->findOrFail($id);
-        
+
         // Ensure user can only view their own transaction (if logged in)
         if (auth()->check() && $transaksi->user_id !== auth()->id()) {
              // Optional: Allow if it's a guest transaction (user_id 1) or handle logic

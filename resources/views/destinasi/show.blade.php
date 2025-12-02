@@ -1,17 +1,17 @@
-@extends('layouts.public.app')
+@extends('layouts.public.sub')
 
 @section('content')
     <div class="bg-[#FAFAFA] min-h-screen pb-20 font-poppins">
         <!-- Header / Back Button -->
-        <div class="bg-white border-b border-[#E5E5E5] py-4 px-4 lg:px-24 sticky top-0 z-50">
+        <div class="bg-neutral-900 text-white   py-4 px-4 lg:px-24 sticky top-0 z-50">
             <a href="{{ route('onboarding') }}" class="inline-flex items-center gap-2 text-[#404040] hover:text-indigo-600 transition">
                 <div class="border-2 border-[#404040] rounded-full p-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M19 12H5"/>
                         <path d="m12 19-7-7 7-7"/>
                     </svg>
                 </div>
-                <span class="font-semibold text-base">Kembali</span>
+                <span class="font-semibold text-white">Kembali</span>
             </a>
         </div>
 
@@ -24,7 +24,7 @@
                     <span class="text-gray-500 text-xl">No Image Available</span>
                 </div>
             @endif
-            
+
             <!-- Gradient Overlay -->
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
 
@@ -51,7 +51,7 @@
         <!-- Main Content -->
         <div class="container mx-auto px-4 lg:px-24 mt-8 relative">
             <div class="flex flex-col lg:flex-row gap-8">
-                
+
                 <!-- Left Column -->
                 <div class="w-full lg:w-[65%]">
                     <!-- Tabs -->
@@ -153,9 +153,18 @@
                             </div>
                         </div>
 
-                        <a href="{{ route('transaksi.create', $destinasi->id) }}" class="block w-full bg-[#6366F1] hover:bg-indigo-700 text-white font-semibold text-lg py-4 rounded-xl transition shadow-md hover:shadow-lg mb-4 text-center">
-                            Pesan Sekarang
-                        </a>
+                            @auth
+                                @if(Auth::user()->hasRole('user'))
+                                    <a href="{{ route('transaksi.create', $destinasi->id) }}" class="block w-full bg-[#6366F1] hover:bg-indigo-700 text-white font-semibold text-lg py-4 rounded-xl transition shadow-md hover:shadow-lg mb-4 text-center">
+                                        Pesan Sekarang
+                                    </a>
+                                @endif
+                            @else
+                                <a href="{{ route('login') }}" class="block w-full bg-gray-500 hover:bg-gray-600 text-white font-semibold text-lg py-4 rounded-xl transition shadow-md hover:shadow-lg mb-4 text-center">
+                                    Login untuk Pesan
+                                </a>
+                            @endauth
+
 
                         <p class="text-center text-[#737373] text-xs">
                             Pembayaran aman dan terpercaya

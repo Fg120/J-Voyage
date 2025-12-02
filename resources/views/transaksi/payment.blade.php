@@ -1,4 +1,4 @@
-@extends('layouts.public.app')
+@extends('layouts.public.sub')
 
 @section('content')
     <div class="bg-[#FAFAFA] min-h-screen pb-20 font-poppins pt-24">
@@ -13,7 +13,7 @@
 
                         <form action="{{ route('transaksi.processPayment', $transaksi->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            
+
                             <!-- Bank Transfer Option -->
                             <div class="mb-6">
                                 <label class="mb-3 flex items-center p-4 border-2 border-[#818CF8] bg-[#EEF2FF] rounded-xl cursor-pointer transition">
@@ -91,7 +91,7 @@
                 <div class="w-full lg:w-[35%]">
                     <div class="bg-white rounded-2xl shadow-lg p-6 sticky top-24 border border-gray-100">
                         <h3 class="font-bold text-xl text-[#171717] mb-4">Ringkasan Pemesanan</h3>
-                        
+
                         <div class="flex gap-4 mb-6">
                             @if($transaksi->pengelola->foto_wisata)
                                 <img src="{{ Storage::url($transaksi->pengelola->foto_wisata) }}" alt="{{ $transaksi->pengelola->nama_wisata }}" class="w-full h-32 object-cover rounded-xl">

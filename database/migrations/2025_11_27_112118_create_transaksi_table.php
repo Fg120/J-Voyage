@@ -17,11 +17,11 @@ return new class extends Migration
             $table->foreign('pengelola_id')->references('id')->on('pengelola')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('kode')->nullable();            
+            $table->string('kode')->nullable();
             // Data pemesan
-            $table->string('nama');            
-            $table->string('email');            
-            $table->string('telepon');            
+            $table->string('nama');
+            $table->string('email');
+            $table->string('telepon');
             // Data kunjungan
             $table->date('tanggal_kunjungan');
             $table->integer('jumlah');

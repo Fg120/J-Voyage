@@ -20,55 +20,55 @@
                         <th class="px-4 py-3">Aksi</th>
                     </tr>
                 </thead>
-                <tbody class="bg-white divide-y">
-                    @forelse($transaksi as $item)
-                    <tr class="text-gray-700">
-                        <td class="px-4 py-3">
-                            <div class="flex items-center text-sm">
-                                <div>
-                                    <p class="font-semibold">{{ $item->nama }}</p>
-                                    <p class="text-xs text-gray-600">{{ $item->email }}</p>
+                    <tbody class="bg-white divide-y">
+                        @forelse($transaksi as $item)
+                        <tr class="text-gray-700">
+                            <td class="px-4 py-3">
+                                <div class="flex items-center text-sm">
+                                    <div>
+                                        <p class="font-semibold">{{ $item->nama }}</p>
+                                        <p class="text-xs text-gray-600">{{ $item->email }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                            {{ $item->tanggal_kunjungan->format('d M Y') }}
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                            {{ $item->jumlah }} Orang
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                            Rp {{ number_format($item->total_harga, 0, ',', '.') }}
-                        </td>
-                        <td class="px-4 py-3 text-xs">
-                            @if($item->status == 'pending')
-                                <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full">
-                                    Pending
-                                </span>
-                            @elseif($item->status == 'verified')
-                                <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full">
-                                    Verified
-                                </span>
-                            @elseif($item->status == 'rejected')
-                                <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full">
-                                    Rejected
-                                </span>
-                            @endif
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                            <a href="{{ route('pengelola.transaksi.show', $item->id) }}" class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                                Detail
-                            </a>
-                        </td>
-                    </tr>
-                    @empty
-                    <tr>
-                        <td colspan="6" class="px-4 py-3 text-center text-gray-500">
-                            Belum ada transaksi.
-                        </td>
-                    </tr>
-                    @endforelse
-                </tbody>
+                            </td>
+                            <td class="px-4 py-3 text-sm">
+                                {{ $item->tanggal_kunjungan->format('d M Y') }}
+                            </td>
+                            <td class="px-4 py-3 text-sm">
+                                {{ $item->jumlah }} Orang
+                            </td>
+                            <td class="px-4 py-3 text-sm">
+                                Rp {{ number_format($item->total_harga, 0, ',', '.') }}
+                            </td>
+                            <td class="px-4 py-3 text-xs">
+                                @if($item->status == 'pending')
+                                    <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full">
+                                        Pending
+                                    </span>
+                                @elseif($item->status == 'verified')
+                                    <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full">
+                                        Verified
+                                    </span>
+                                @elseif($item->status == 'rejected')
+                                    <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full">
+                                        Rejected
+                                    </span>
+                                @endif
+                            </td>
+                            <td class="px-4 py-3 text-sm">
+                                <a href="{{ route('pengelola.transaksi.show', $item->id) }}" class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                                    Detail
+                                </a>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="6" class="px-4 py-3 text-center text-gray-500">
+                                Belum ada transaksi.
+                            </td>
+                        </tr>
+                        @endforelse
+                    </tbody>
             </table>
         </div>
     </div>
