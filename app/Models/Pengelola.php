@@ -102,4 +102,9 @@ class Pengelola extends Model
             default => '<span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-800">Unknown</span>',
         };
     }
+
+    public function ulasan()
+    {
+        return $this->hasMany(Ulasan::class);
+    }
 }

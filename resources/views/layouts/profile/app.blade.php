@@ -20,7 +20,7 @@
     <div class="bg-gradient-to-r from-indigo-600 to-indigo-500 pt-12 pb-16">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <!-- Back Button -->
-            <a href="{{ url('/') }}" class="inline-flex items-center gap-2 text-white hover:text-gray-200 transition mb-8">
+            <a href="{{ route('onboarding') }}" class="inline-flex items-center gap-2 text-white hover:text-gray-200 transition mb-8">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg>

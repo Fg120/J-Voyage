@@ -13,7 +13,6 @@
                     } elseif (auth()->user() && auth()->user()->hasRole('pengelola')) {
                         $breadcrumbs[] = ['label' => 'Dashboard', 'route' => 'pengelola.dashboard'];
                     }
-
                     if (count($segments) > 0 && $segments[0] !== 'dashboard') {
                         foreach ($segments as $i => $segment) {
                             $label = ucfirst(str_replace(['-', '_'], ' ', $segment));

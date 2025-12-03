@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengelola;
+use App\Models\Ulasan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,7 +25,10 @@ class HomeController extends Controller
             ->where('status', 'approved')
             ->findOrFail($id);
 
-        return view('destinasi.show', compact('destinasi'));
+        $avgulasan = Ulasan::where('pengelola_id', $id)->avg('rating');
+        $banyakulasan = Ulasan::where('pengelola_id', $id)->count();
+
+        return view('destinasi.show', compact('destinasi', 'avgulasan', 'banyakulasan'));
     }
 
     public function showmore(Request $request)

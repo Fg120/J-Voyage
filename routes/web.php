@@ -42,8 +42,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
 
 // PENGELOLA ROUTES
 Route::prefix('pengelola')->name('pengelola.')->middleware(['auth', 'role:pengelola'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
+    Route::get('/dashboard', [\App\Http\Controllers\Pengelola\DashboardController::class, 'index'])->name('dashboard');
     // Profile Usaha
     Route::get('/profile', [\App\Http\Controllers\Pengelola\ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile/edit', [\App\Http\Controllers\Pengelola\ProfileController::class, 'edit'])->name('profile.edit');
@@ -58,17 +57,22 @@ Route::prefix('pengelola')->name('pengelola.')->middleware(['auth', 'role:pengel
     Route::get('/transaksi/{id}', [\App\Http\Controllers\Pengelola\TransaksiController::class, 'show'])->name('transaksi.show');
     Route::post('/transaksi/{id}/approve', [\App\Http\Controllers\Pengelola\TransaksiController::class, 'approve'])->name('transaksi.approve');
     Route::post('/transaksi/{id}/reject', [\App\Http\Controllers\Pengelola\TransaksiController::class, 'reject'])->name('transaksi.reject');
+
+    // review
+    Route::get('/review', [\App\Http\Controllers\Pengelola\ReviewController::class, 'index'])->name('review.index');
 });
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('onboarding');
 Route::get('/destinasi', [\App\Http\Controllers\HomeController::class, 'showmore'])->name('destinasi.showmore');
 Route::get('/destinasi/{id}', [\App\Http\Controllers\HomeController::class, 'show'])->name('destinasi.show');
+Route::get('/destinasi/ulasan/{id}', [\App\Http\Controllers\UlasanController::class, 'show'])->name('ulasan.show');
 
 // Public Transaction Routes
 Route::get('/destinasi/{id}/pesan', [\App\Http\Controllers\TransaksiController::class, 'create'])->name('transaksi.create');
 Route::post('/destinasi/{id}/pesan', [\App\Http\Controllers\TransaksiController::class, 'store'])->name('transaksi.store');
 Route::get('/transaksi/{id}/pembayaran', [\App\Http\Controllers\TransaksiController::class, 'payment'])->name('transaksi.payment');
 Route::post('/transaksi/{id}/bayar', [\App\Http\Controllers\TransaksiController::class, 'processPayment'])->name('transaksi.processPayment');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
@@ -89,6 +93,9 @@ Route::middleware('auth')->group(function () {
 
     // API untuk dropdown desa berdasarkan kecamatan
     Route::get('/api/desa/{kecamatan_id}', [PengelolaController::class, 'getDesa']);
+
+    Route::get('/destinasi/ulasan/{id}/store', [\App\Http\Controllers\UlasanController::class, 'index'])->name('ulasan.index');
+    Route::post('/destinasi/ulasan/{id}/store', [\App\Http\Controllers\UlasanController::class, 'store'])->name('ulasan.store');
 
 });
 
