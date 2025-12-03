@@ -185,84 +185,97 @@
     {{-- Destinasi End --}}
 
     {{-- FAQ Start --}}
-   <div class="mt-[100px] " data-aos="fade-up" id="faq"
+
+
+<div class="mt-[100px]" data-aos="fade-up" id="faq"
      data-aos-anchor-placement="top-center" data-aos-duration="1000" data-aos-once="true">
-     <div class="flex flex-col items-center gap-2 mb-10">
-        <h2 class="text-[24px] sm:text-[35px] lg:text-[50px] font-bold text-center" >JAWABAN ATAS PERTANYAAN ANDA</h2>
-        <div class="bg-indigo-500 w-[150px] h-1">
-        </div>
+
+    <div class="flex flex-col items-center gap-2 mb-10">
+        <h2 class="text-[24px] sm:text-[35px] lg:text-[50px] font-bold text-center">JAWABAN ATAS PERTANYAAN ANDA</h2>
+        <div class="bg-indigo-500 w-[150px] h-1"></div>
     </div>
     <p class="text-center max-w-[500px] mx-auto">Temukan jawaban untuk pertanyaan umum seputar layanan J-Voyage</p>
 
-
     <div class="max-w-6xl mx-auto mt-10">
-    <div class="hs-accordion-group">
-      <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active" id="hs-basic-with-title-and-arrow-stretched-heading-one">
-        <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-          Bagaimana cara melakukan booking?
-          <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-          <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
-        </button>
-        <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-          <p class="text-gray-800 dark:text-neutral-200">
-           ...
-          </p>
-        </div>
-      </div>
+        <div class="hs-accordion-group">
 
-      <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active" id="hs-basic-with-title-and-arrow-stretched-heading-one ">
-        <button class=" hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-          Apakah harga sudah termasuk akomodasi?
-          <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-          <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
-        </button>
-        <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-          <p class="text-gray-800 dark:text-neutral-200">
-           ...
-          </p>
-        </div>
-      </div>
+            <div class="hs-accordion group bg-white mb-5 hover:border-2 hover:border-indigo-300 transition rounded-xl p-6" id="faq-heading-one">
+                <button class="hs-accordion-toggle w-full flex items-center justify-between gap-x-3 md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-none" aria-controls="faq-collapse-one">
+                    Bagaimana cara melakukan booking?
 
-     <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active" id="hs-basic-with-title-and-arrow-stretched-heading-one">
-        <button class="  hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-         Apakah bisa reschedule atau refund?
-          <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-          <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
-        </button>
-        <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-          <p class="text-gray-800 dark:text-neutral-200">
-           ...
-          </p>
-        </div>
-      </div>
+                    <svg class="group-[.active]:rotate-180 transition-transform duration-300 block shrink-0 size-6 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                </button>
+                <div id="faq-collapse-one" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="faq-heading-one">
+                    <p class="text-gray-800 pt-4 leading-relaxed">
+                        Anda dapat melakukan booking dengan memilih destinasi wisata yang diinginkan, klik tombol "Pesan Tiket", isi form data diri dan tanggal kunjungan, lalu lakukan pembayaran sesuai metode yang dipilih.
+                    </p>
+                </div>
+            </div>
 
-      <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active" id="hs-basic-with-title-and-arrow-stretched-heading-one">
-        <button class="  hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-          Apakah tersedia guide berbahasa asing?
-          <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-          <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
-        </button>
-        <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-          <p class="text-gray-800 dark:text-neutral-200">
-           ...
-          </p>
-        </div>
-      </div>
+            <div class="hs-accordion group bg-white mb-5 hover:border-2 hover:border-indigo-300 transition rounded-xl p-6" id="faq-heading-two">
+                <button class="hs-accordion-toggle w-full flex items-center justify-between gap-x-3 md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-none" aria-controls="faq-collapse-two">
+                    Apakah harga sudah termasuk akomodasi?
 
-     <div class=" bg-white mb-5 hover:border-2 hover:border-indigo-300 transition  hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 active" id="hs-basic-with-title-and-arrow-stretched-heading-one">
-        <button class="  hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-hidden  dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-          Apa saja yang perlu dibawa?
-          <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-          <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
-        </button>
-        <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-          <p class="text-gray-800 dark:text-neutral-200">
-           ...
-          </p>
-        </div>
-      </div>
+                    <svg class="group-[.active]:rotate-180 transition-transform duration-300 block shrink-0 size-6 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                </button>
+                <div id="faq-collapse-two" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="faq-heading-two">
+                    <p class="text-gray-800 pt-4 leading-relaxed">
+                        Harga tiket masuk biasanya hanya mencakup akses ke lokasi wisata dan fasilitas umum. Untuk penginapan atau akomodasi khusus, biaya dikenakan terpisah kecuali tertera pada paket bundling.
+                    </p>
+                </div>
+            </div>
 
-  </div>
+            <div class="hs-accordion group bg-white mb-5 hover:border-2 hover:border-indigo-300 transition rounded-xl p-6" id="faq-heading-three">
+                <button class="hs-accordion-toggle w-full flex items-center justify-between gap-x-3 md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-none" aria-controls="faq-collapse-three">
+                    Apakah bisa reschedule atau refund?
+
+                    <svg class="group-[.active]:rotate-180 transition-transform duration-300 block shrink-0 size-6 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                </button>
+                <div id="faq-collapse-three" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="faq-heading-three">
+                    <p class="text-gray-800 pt-4 leading-relaxed">
+                        Reschedule dapat dilakukan maksimal H-3 sebelum kunjungan. Refund (pengembalian dana) hanya dapat diajukan jika pembatalan dilakukan oleh pihak pengelola wisata atau force majeure.
+                    </p>
+                </div>
+            </div>
+
+            <div class="hs-accordion group bg-white mb-5 hover:border-2 hover:border-indigo-300 transition rounded-xl p-6" id="faq-heading-four">
+                <button class="hs-accordion-toggle w-full flex items-center justify-between gap-x-3 md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-none" aria-controls="faq-collapse-four">
+                    Apakah tersedia guide berbahasa asing?
+
+                    <svg class="group-[.active]:rotate-180 transition-transform duration-300 block shrink-0 size-6 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                </button>
+                <div id="faq-collapse-four" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="faq-heading-four">
+                    <p class="text-gray-800 pt-4 leading-relaxed">
+                        Beberapa destinasi wisata populer di Jember menyediakan pemandu berbahasa Inggris. Harap hubungi kontak yang tertera pada detail wisata untuk konfirmasi ketersediaan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="hs-accordion group bg-white mb-5 hover:border-2 hover:border-indigo-300 transition rounded-xl p-6" id="faq-heading-five">
+                <button class="hs-accordion-toggle w-full flex items-center justify-between gap-x-3 md:text-lg font-semibold text-start text-gray-800 rounded-lg transition focus:outline-none" aria-controls="faq-collapse-five">
+                    Apa saja yang perlu dibawa?
+
+                    <svg class="group-[.active]:rotate-180 transition-transform duration-300 block shrink-0 size-6 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                </button>
+                <div id="faq-collapse-five" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="faq-heading-five">
+                    <p class="text-gray-800 pt-4 leading-relaxed">
+                        Disarankan membawa e-tiket (bukti booking), pakaian ganti yang nyaman, tabir surya, dan uang tunai secukupnya karena tidak semua lokasi memiliki ATM terdekat.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
         {{-- FAQ End --}}
     @endsection

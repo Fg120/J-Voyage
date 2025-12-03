@@ -78,6 +78,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/profile/riwayat', [\App\Http\Controllers\TransaksiController::class, 'history'])->name('profile.history');
+    Route::get('/profile/riwayat/{id}', [\App\Http\Controllers\TransaksiController::class, 'showDetail'])->name('detail.history');
+    Route::get('/profile/riwayat/tiket/{id}', [\App\Http\Controllers\TransaksiController::class, 'showTiket'])->name('show.tiket');
+    Route::get('/profile/riwayat/tiket/scan', [\App\Http\Controllers\TransaksiController::class, 'scanTiket'])->name('scan.tiket');
 
     // Pengajuan Pengelola (untuk user biasa)
     Route::get('/profile/pengajuan', [PengelolaController::class, 'index'])->name('pengelola.index');
@@ -85,6 +88,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/profile/pengajuan', [PengelolaController::class, 'store'])->name('pengelola.store');
     Route::get('/profile/pengajuan/edit', [PengelolaController::class, 'edit'])->name('pengelola.edit');
     Route::put('/profile/pengajuan', [PengelolaController::class, 'update'])->name('pengelola.update');
+
 
     // API untuk dropdown desa berdasarkan kecamatan
     Route::get('/api/desa/{kecamatan_id}', [PengelolaController::class, 'getDesa']);

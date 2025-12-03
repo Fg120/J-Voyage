@@ -72,11 +72,11 @@
 
                             <div class="flex gap-3">
                                 @if($item->status == 'verified' && $item->kode)
-                                    <button onclick="alert('Kode Tiket Anda: {{ $item->kode }}')" class="bg-[#818CF8] hover:bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold text-sm transition">
+                                    <a href="{{ route('show.tiket', $item->id) }}" class="bg-[#818CF8] hover:bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold text-sm transition">
                                         Lihat Tiket
-                                    </button>
+                                    </a>
                                 @endif
-                                <a href="{{ route('transaksi.payment', $item->id) }}" class="bg-gray-100 hover:bg-gray-200 text-[#171717] px-6 py-2 rounded-lg font-semibold text-sm transition">
+                                <a href="{{ route('detail.history', $item->id) }}" class="bg-gray-100 hover:bg-gray-200 text-[#171717] px-6 py-2 rounded-lg font-semibold text-sm transition">
                                     Detail
                                 </a>
                             </div>

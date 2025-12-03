@@ -85,4 +85,29 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::with('pengelola')->where('user_id', auth()->id())->latest()->get();
         return view('profile.history', compact('transaksi'));
     }
+
+    public function showDetail($id){
+
+        $transaksi = Transaksi::with('pengelola')
+        ->where('id', $id)
+        ->first();
+
+        return view('profile.detailhistory', compact('transaksi'));
+    }
+    public function showTiket($id){
+
+        $transaksi = Transaksi::with('pengelola')
+        ->where('id', $id)
+        ->first();
+
+        return view('profile.showtiket', compact('transaksi'));
+    }
+    public function scanTiket($kode){
+
+        $transaksi = Transaksi::with('pengelola')
+        ->where('kode', decrypt($kode))
+        ->first();
+
+        return view('cobascan', compact('transaksi'));
+    }
 }
