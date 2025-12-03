@@ -20,6 +20,7 @@ class EmailVerificationNotificationController extends Controller
             } elseif ($user->hasRole('pengelola')) {
                 return redirect()->intended(route('pengelola.dashboard', absolute: false));
             }
+
             return redirect()->intended(route('onboarding', absolute: false));
         }
 

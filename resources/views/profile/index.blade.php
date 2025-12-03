@@ -72,7 +72,6 @@
         <!-- Statistik Card -->
         <div class="bg-white rounded-2xl shadow-md p-8">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Statistik</h2>
-
             <div class="grid grid-cols-2 gap-4">
                 <!-- Total Booking -->
                 <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-6">
@@ -82,30 +81,30 @@
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                         </svg>
                     </div>
-                    <p class="text-4xl font-extrabold text-indigo-600 mb-2">0</p>
-                    <p class="text-sm text-gray-600">Total Booking</p>
+                    <p class="text-4xl font-extrabold text-indigo-600 mb-2">{{$total}}</p>
+                    <p class="text-sm text-gray-600">Total Transaksi</p>
                 </div>
 
                 <!-- Selesai -->
-                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6">
+                <div class="bg-green-100 rounded-xl p-6">
                     <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mb-4">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <p class="text-4xl font-extrabold text-green-600 mb-2">0</p>
-                    <p class="text-sm text-gray-600">Selesai</p>
+                    <p class="text-4xl font-extrabold text-green-600 mb-2">{{$confirm}}</p>
+                    <p class="text-sm text-gray-600">Dikonfirmasi</p>
                 </div>
 
                 <!-- Upcoming -->
-                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6">
-                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mb-4">
+                <div class="bg-orange-100 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center mb-4">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <p class="text-4xl font-extrabold text-blue-600 mb-2">0</p>
-                    <p class="text-sm text-gray-600">Upcoming</p>
+                    <p class="text-4xl font-extrabold text-orange-600 mb-2">{{$pending}}</p>
+                    <p class="text-sm text-gray-600">Pending</p>
                 </div>
 
                 <!-- Dibatalkan -->
@@ -115,8 +114,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <p class="text-4xl font-extrabold text-red-600 mb-2">0</p>
-                    <p class="text-sm text-gray-600">Dibatalkan</p>
+                    <p class="text-4xl font-extrabold text-red-600 mb-2">{{ $reject }}</p>
+                    <p class="text-sm text-gray-600">Ditolak</p>
                 </div>
             </div>
         </div>

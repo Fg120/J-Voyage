@@ -2,17 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-use App\Models\Pengelola;
-use App\Models\Kecamatan;
 use App\Models\Desa;
 use App\Models\Fasilitas;
 use App\Models\Highlight;
-use Spatie\Permission\Models\Role;
-use Illuminate\Support\Facades\Hash;
+use App\Models\Kecamatan;
+use App\Models\Pengelola;
+use App\Models\User;
 use Faker\Factory as Faker;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -36,6 +35,7 @@ class DatabaseSeeder extends Seeder
 
         if (empty($listKecamatanID)) {
             $this->command->error('❌ Error: Tabel Kecamatan kosong!');
+
             return;
         }
 
@@ -45,12 +45,11 @@ class DatabaseSeeder extends Seeder
 
             $user = User::create([
                 'name' => $faker->name,
-                'email' => $faker->unique()->userName . '@gmail.com',
+                'email' => $faker->unique()->userName.'@gmail.com',
                 'password' => Hash::make('password'),
                 'telepon' => $faker->phoneNumber,
                 'email_verified_at' => now(),
             ]);
-
 
             $kecamatanID = $faker->randomElement($listKecamatanID);
 
@@ -58,7 +57,7 @@ class DatabaseSeeder extends Seeder
             $desaID = $desa ? $desa->id : null;
 
             $prefix = $faker->randomElement(['Wisata', 'Pantai', 'Bukit', 'Kampung', 'Taman', 'Pemandian']);
-            $namaWisata = $prefix . ' ' . $faker->citySuffix . ' ' . $faker->firstName;
+            $namaWisata = $prefix.' '.$faker->citySuffix.' '.$faker->firstName;
 
             $pengelola = Pengelola::create([
                 'user_id' => $user->id,
@@ -75,7 +74,6 @@ class DatabaseSeeder extends Seeder
                 'kontak_wisata' => $faker->phoneNumber,
 
                 'status' => $faker->randomElement(['approved', 'approved', 'approved', 'pending']),
-
 
                 'nama_bank' => $faker->randomElement(['BRI', 'BCA', 'Mandiri', 'Jatim']),
                 'nomor_rekening' => $faker->creditCardNumber,

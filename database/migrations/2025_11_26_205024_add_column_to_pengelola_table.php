@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('pengelola', function (Blueprint $table) {
-            if (!Schema::hasColumn('pengelola', 'nomor_rekening')) {
+            if (! Schema::hasColumn('pengelola', 'nomor_rekening')) {
                 $table->string('nomor_rekening')->nullable();
             }
-            if (!Schema::hasColumn('pengelola', 'nama_bank')) {
+            if (! Schema::hasColumn('pengelola', 'nama_bank')) {
                 $table->string('nama_bank')->nullable();
             }
-            if (!Schema::hasColumn('pengelola', 'nama_pemilik_rekening')) {
+            if (! Schema::hasColumn('pengelola', 'nama_pemilik_rekening')) {
                 $table->string('nama_pemilik_rekening')->nullable();
             }
-            if (!Schema::hasColumn('pengelola', 'harga')) {
+            if (! Schema::hasColumn('pengelola', 'harga')) {
                 $table->unsignedBigInteger('harga')->default(0);
             }
         });

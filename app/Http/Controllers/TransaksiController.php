@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Pengelola;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class TransaksiController extends Controller
 {
     public function create($id)
     {
         $destinasi = Pengelola::where('status', 'approved')->findOrFail($id);
+
         return view('transaksi.create', compact('destinasi'));
     }
 
@@ -54,7 +54,7 @@ class TransaksiController extends Controller
 
         // Ensure user can only view their own transaction (if logged in)
         if (auth()->check() && $transaksi->user_id !== auth()->id()) {
-             // Optional: Allow if it's a guest transaction (user_id 1) or handle logic
+            // Optional: Allow if it's a guest transaction (user_id 1) or handle logic
         }
 
         return view('transaksi.payment', compact('transaksi'));
@@ -83,30 +83,36 @@ class TransaksiController extends Controller
     public function history()
     {
         $transaksi = Transaksi::with('pengelola')->where('user_id', auth()->id())->latest()->get();
+
         return view('profile.history', compact('transaksi'));
     }
 
-    public function showDetail($id){
+    public function showDetail($id)
+    {
 
         $transaksi = Transaksi::with('pengelola')
-        ->where('id', $id)
-        ->first();
+            ->where('id', $id)
+            ->first();
 
         return view('profile.detailhistory', compact('transaksi'));
     }
-    public function showTiket($id){
+
+    public function showTiket($id)
+    {
 
         $transaksi = Transaksi::with('pengelola')
-        ->where('id', $id)
-        ->first();
+            ->where('id', $id)
+            ->first();
 
         return view('profile.showtiket', compact('transaksi'));
     }
-    public function scanTiket($kode){
+
+    public function scanTiket($kode)
+    {
 
         $transaksi = Transaksi::with('pengelola')
-        ->where('kode', decrypt($kode))
-        ->first();
+            ->where('kode', decrypt($kode))
+            ->first();
 
         return view('cobascan', compact('transaksi'));
     }

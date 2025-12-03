@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Transaksi;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +12,18 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    public function index()
+    {
+
+        $id = Auth::user()->id;
+        $totalTransaksi = Transaksi::where('user_id', $id)->count();
+        $TransaksiConfirm = Transaksi::where('user_id', $id)->where('status', 'verified')->count();
+        $TransaksiPending = Transaksi::where('user_id', $id)->where('status', 'pending')->count();
+        $TransaksiReject = Transaksi::where('user_id', $id)->where('status', 'rejected')->count();
+
+        return view('profile.index', ['total' => $totalTransaksi, 'confirm' => $TransaksiConfirm, 'pending' => $TransaksiPending, 'reject' => $TransaksiReject]);
+    }
+
     /**
      * Display the user's profile form.
      */
@@ -34,7 +47,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.index')->with('status', 'profile-updated');
     }
 
     /**

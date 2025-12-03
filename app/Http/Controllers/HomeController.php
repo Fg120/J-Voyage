@@ -14,6 +14,7 @@ class HomeController extends Controller
             ->latest()
             ->take(5)
             ->get();
+
         return view('onboarding', compact('destinasi'));
     }
 
@@ -26,17 +27,17 @@ class HomeController extends Controller
         return view('destinasi.show', compact('destinasi'));
     }
 
-    public function showmore(Request $request){
+    public function showmore(Request $request)
+    {
 
         $search = $request->searchdestination;
         $destinasi = Pengelola::with(['desa', 'kecamatan'])
-    ->where('status', 'approved')
-    ->when($request->searchdestination, function ($query, $search) {
-        return $query->where('nama_wisata', 'LIKE', '%' . $search . '%');
-    })
-    ->latest()
-    ->paginate(8);
-
+            ->where('status', 'approved')
+            ->when($request->searchdestination, function ($query, $search) {
+                return $query->where('nama_wisata', 'LIKE', '%'.$search.'%');
+            })
+            ->latest()
+            ->paginate(8);
 
         return view('destinasi.showmore', compact('destinasi'));
     }

@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Pengelola;
 
 use App\Http\Controllers\Controller;
-use App\Models\Transaksi;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class TransaksiController extends Controller
@@ -12,12 +10,14 @@ class TransaksiController extends Controller
     public function index()
     {
         $transaksi = auth()->user()->pengelola->transaksi()->latest()->get();
+
         return view('pengelola.transaksi.index', compact('transaksi'));
     }
 
     public function show($id)
     {
         $transaksi = auth()->user()->pengelola->transaksi()->findOrFail($id);
+
         return view('pengelola.transaksi.show', compact('transaksi'));
     }
 
@@ -39,7 +39,7 @@ class TransaksiController extends Controller
         ]);
 
         return redirect()->route('pengelola.transaksi.show', $transaksi->id)
-            ->with('success', 'Transaksi berhasil disetujui. Kode tiket: ' . $kode);
+            ->with('success', 'Transaksi berhasil disetujui. Kode tiket: '.$kode);
     }
 
     public function reject($id)

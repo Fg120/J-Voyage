@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PengelolaController as AdminPengelolaController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\PengelolaController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 // REDIRECT ROUTES
@@ -19,6 +19,7 @@ Route::middleware('auth')->get('/dashboard', function () {
     } elseif ($user->hasRole('pengelola')) {
         return redirect()->route('pengelola.dashboard');
     }
+
     return redirect()->route('onboarding');
 })->name('dashboard');
 
@@ -60,9 +61,8 @@ Route::prefix('pengelola')->name('pengelola.')->middleware(['auth', 'role:pengel
 });
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('onboarding');
-Route::get('/destinasi',  [\App\Http\Controllers\HomeController::class, 'showmore'] )->name('destinasi.showmore');
+Route::get('/destinasi', [\App\Http\Controllers\HomeController::class, 'showmore'])->name('destinasi.showmore');
 Route::get('/destinasi/{id}', [\App\Http\Controllers\HomeController::class, 'show'])->name('destinasi.show');
-
 
 // Public Transaction Routes
 Route::get('/destinasi/{id}/pesan', [\App\Http\Controllers\TransaksiController::class, 'create'])->name('transaksi.create');
@@ -71,9 +71,7 @@ Route::get('/transaksi/{id}/pembayaran', [\App\Http\Controllers\TransaksiControl
 Route::post('/transaksi/{id}/bayar', [\App\Http\Controllers\TransaksiController::class, 'processPayment'])->name('transaksi.processPayment');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', function () {
-        return view('profile.index');
-    })->name('profile.index');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -89,10 +87,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/pengajuan/edit', [PengelolaController::class, 'edit'])->name('pengelola.edit');
     Route::put('/profile/pengajuan', [PengelolaController::class, 'update'])->name('pengelola.update');
 
-
     // API untuk dropdown desa berdasarkan kecamatan
     Route::get('/api/desa/{kecamatan_id}', [PengelolaController::class, 'getDesa']);
 
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

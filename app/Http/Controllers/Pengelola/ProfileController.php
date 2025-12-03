@@ -13,6 +13,7 @@ class ProfileController extends Controller
     public function index()
     {
         $pengelola = auth()->user()->pengelola;
+
         return view('pengelola.profile.index', compact('pengelola'));
     }
 
@@ -20,8 +21,8 @@ class ProfileController extends Controller
     {
         $pengelola = auth()->user()->pengelola;
         $kecamatans = Kecamatan::orderBy('nama')->get();
-        $desas = $pengelola->kecamatan_id 
-            ? Desa::where('kecamatan_id', $pengelola->kecamatan_id)->orderBy('nama')->get() 
+        $desas = $pengelola->kecamatan_id
+            ? Desa::where('kecamatan_id', $pengelola->kecamatan_id)->orderBy('nama')->get()
             : collect();
 
         return view('pengelola.profile.edit', compact('pengelola', 'kecamatans', 'desas'));

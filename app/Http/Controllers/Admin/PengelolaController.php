@@ -25,6 +25,7 @@ class PengelolaController extends Controller
     public function show(Pengelola $pengelola)
     {
         $pengelola->load(['user', 'kecamatan', 'desa']);
+
         return view('admin.pengelola.show', compact('pengelola'));
     }
 

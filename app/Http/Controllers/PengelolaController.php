@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pengelola;
-use App\Models\Kecamatan;
 use App\Models\Desa;
+use App\Models\Kecamatan;
+use App\Models\Pengelola;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,6 +13,7 @@ class PengelolaController extends Controller
     public function index()
     {
         $pengelola = auth()->user()->pengelola;
+
         return view('pengelola.index', compact('pengelola'));
     }
 
@@ -25,26 +26,27 @@ class PengelolaController extends Controller
         }
 
         $kecamatans = Kecamatan::orderBy('nama')->get();
+
         return view('pengelola.create', compact('kecamatans'));
     }
 
     public function edit()
     {
         $pengelola = auth()->user()->pengelola;
-        
-        if (!$pengelola) {
+
+        if (! $pengelola) {
             return redirect()->route('pengelola.create');
         }
 
         // Hanya bisa edit jika pending atau rejected
-        if (!in_array($pengelola->status, ['pending', 'rejected'])) {
+        if (! in_array($pengelola->status, ['pending', 'rejected'])) {
             return redirect()->route('pengelola.index')
                 ->with('error', 'Pengajuan yang sudah disetujui tidak dapat diubah.');
         }
 
         $kecamatans = Kecamatan::orderBy('nama')->get();
-        $desas = $pengelola->kecamatan_id 
-            ? Desa::where('kecamatan_id', $pengelola->kecamatan_id)->orderBy('nama')->get() 
+        $desas = $pengelola->kecamatan_id
+            ? Desa::where('kecamatan_id', $pengelola->kecamatan_id)->orderBy('nama')->get()
             : collect();
 
         return view('pengelola.edit', compact('pengelola', 'kecamatans', 'desas'));
@@ -100,7 +102,7 @@ class PengelolaController extends Controller
     {
         $pengelola = auth()->user()->pengelola;
 
-        if (!$pengelola || !in_array($pengelola->status, ['pending', 'rejected'])) {
+        if (! $pengelola || ! in_array($pengelola->status, ['pending', 'rejected'])) {
             return redirect()->route('pengelola.index')
                 ->with('error', 'Pengajuan tidak dapat diubah.');
         }
@@ -166,6 +168,7 @@ class PengelolaController extends Controller
     public function getDesa($kecamatan_id)
     {
         $desas = Desa::where('kecamatan_id', $kecamatan_id)->orderBy('nama')->get();
+
         return response()->json($desas);
     }
 }

@@ -17,11 +17,12 @@ class VerifyEmailController extends Controller
         if ($request->user()->hasVerifiedEmail()) {
             $user = $request->user();
             if ($user->hasRole('admin')) {
-                return redirect()->intended(route('admin.dashboard', absolute: false) . '?verified=1');
+                return redirect()->intended(route('admin.dashboard', absolute: false).'?verified=1');
             } elseif ($user->hasRole('pengelola')) {
-                return redirect()->intended(route('pengelola.dashboard', absolute: false) . '?verified=1');
+                return redirect()->intended(route('pengelola.dashboard', absolute: false).'?verified=1');
             }
-            return redirect()->intended(route('onboarding', absolute: false) . '?verified=1');
+
+            return redirect()->intended(route('onboarding', absolute: false).'?verified=1');
         }
 
         if ($request->user()->markEmailAsVerified()) {
@@ -30,11 +31,11 @@ class VerifyEmailController extends Controller
 
         $user = $request->user();
         if ($user->hasRole('admin')) {
-            return redirect()->intended(route('admin.dashboard', absolute: false) . '?verified=1');
+            return redirect()->intended(route('admin.dashboard', absolute: false).'?verified=1');
         } elseif ($user->hasRole('pengelola')) {
-            return redirect()->intended(route('pengelola.dashboard', absolute: false) . '?verified=1');
+            return redirect()->intended(route('pengelola.dashboard', absolute: false).'?verified=1');
         }
 
-        return redirect()->intended(route('onboarding', absolute: false) . '?verified=1');
+        return redirect()->intended(route('onboarding', absolute: false).'?verified=1');
     }
 }

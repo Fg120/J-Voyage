@@ -11,6 +11,7 @@ class FasilitasController extends Controller
     public function index()
     {
         $fasilitas = auth()->user()->pengelola->fasilitas()->latest()->get();
+
         return view('pengelola.fasilitas.index', compact('fasilitas'));
     }
 

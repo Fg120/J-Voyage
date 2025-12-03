@@ -99,7 +99,7 @@
                              @if($transaksi->status == 'pending')
                                 <span class="bg-orange-100 text-orange-600 px-4 py-2 rounded-full text-xs font-semibold">Menunggu Verifikasi</span>
                             @elseif($transaksi->status == 'verified')
-                                <span class="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-xs font-semibold">Dikonfirmasi</span>
+                                <span class="bg-green-100 text-green-600 px-4 py-2 rounded-full text-xs font-semibold">Dikonfirmasi</span>
                             @elseif($transaksi->status == 'rejected')
                                 <span class="bg-red-100 text-red-600 px-4 py-2 rounded-full text-xs font-semibold">Ditolak</span>
                             @endif

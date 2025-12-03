@@ -45,6 +45,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::all();
+
         return view('admin.users.create', compact('roles'));
     }
 
@@ -82,6 +83,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         $user->load('roles');
+
         return view('admin.users.show', compact('user'));
     }
 
@@ -92,6 +94,7 @@ class UserController extends Controller
     {
         $roles = Role::all();
         $user->load('roles');
+
         return view('admin.users.edit', compact('user', 'roles'));
     }
 
@@ -102,7 +105,7 @@ class UserController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $user->id],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
             'telepon' => ['required', 'string', 'max:20'],
             'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
             'roles' => ['nullable', 'array'],
@@ -114,7 +117,7 @@ class UserController extends Controller
             'telepon' => $validated['telepon'],
         ]);
 
-        if (!empty($validated['password'])) {
+        if (! empty($validated['password'])) {
             $user->update([
                 'password' => Hash::make($validated['password']),
             ]);

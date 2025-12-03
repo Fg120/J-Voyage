@@ -11,6 +11,7 @@ class HighlightController extends Controller
     public function index()
     {
         $highlights = auth()->user()->pengelola->highlights()->latest()->get();
+
         return view('pengelola.highlight.index', compact('highlights'));
     }
 
