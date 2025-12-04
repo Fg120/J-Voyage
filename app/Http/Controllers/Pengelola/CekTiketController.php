@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pengelola;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaksi;
+use App\Notifications\TicketScannedNotification;
 use Illuminate\Http\Request;
 
 class CekTiketController extends Controller
@@ -71,7 +72,7 @@ class CekTiketController extends Controller
     {
         $pengelolaId = auth()->user()->pengelola->id;
 
-        $transaksi = Transaksi::where('id', $id)
+        $transaksi = Transaksi::with(['pengelola', 'user'])->where('id', $id)
             ->where('pengelola_id', $pengelolaId)
             ->first();
 
@@ -93,6 +94,14 @@ class CekTiketController extends Controller
             'scanned_at' => now(),
         ]);
 
+        // Refresh the model to get the updated scanned_at
+        $transaksi->refresh();
+
+        // Send email notification
+        if ($transaksi->user) {
+            $transaksi->user->notify(new TicketScannedNotification($transaksi));
+        }
+
         return response()->json([
             'success' => true,
             'message' => 'Tiket berhasil ditandai sebagai sudah di-scan.',
@@ -100,3 +109,4 @@ class CekTiketController extends Controller
         ]);
     }
 }
+
