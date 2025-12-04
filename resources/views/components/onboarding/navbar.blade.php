@@ -37,7 +37,7 @@
                     <div class="grow">
                         <div class="flex flex-col md:flex-row md:justify-end md:items-center gap-0.5 md:gap-1">
                             <a class="p-2 flex items-center text-sm text-white hover:bg-neutral-700 rounded-lg focus:outline-hidden"
-                                href="#">
+                                href="#beranda">
                                 Beranda
                             </a>
 

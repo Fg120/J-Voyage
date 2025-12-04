@@ -10,7 +10,8 @@
             </span>
 
             <p class="opacity-75">
-                Platform booking wisata terpercaya yang menghadirkan pengalaman perjalanan terbaik di Jember. Wujudkan impian petualangan Anda bersama kami.
+                Platform booking wisata terpercaya yang menghadirkan pengalaman perjalanan terbaik di Jember. Wujudkan
+                impian petualangan Anda bersama kami.
             </p>
 
             <div class="flex gap-3">
@@ -23,10 +24,10 @@
                 Link Cepat
             </h5>
             <ul class="flex flex-col gap-2 mt-5 ">
-                <a href="" class="opacity-75 hover:opacity-100">Beranda</a>
-                <a href="" class=" opacity-75 hover:opacity-100">Tentang Kami</a>
-                <a href="" class=" opacity-75 hover:opacity-100">Wisata</a>
-                <a href="" class="opacity-75 hover:opacity-100">FAQ</a>
+                <a href="/#beranda" class="opacity-75 hover:opacity-100">Beranda</a>
+                <a href="/#tentang" class=" opacity-75 hover:opacity-100">Tentang Kami</a>
+                <a href="/#wisata" class=" opacity-75 hover:opacity-100">Wisata</a>
+                <a href="/#faq" class="opacity-75 hover:opacity-100">FAQ</a>
             </ul>
         </div>
         <div>

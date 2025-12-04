@@ -25,12 +25,12 @@
             <div id="panel-text" class="tab-panel">
                 <div class="max-w-md">
                     <label class="block text-gray-300 text-sm font-medium mb-2">Kode Tiket</label>
-                    <div class="flex gap-3">
+                    <div class="flex gap-3 flex-wrap">
                         <input type="text" id="input-kode"
                             class="flex-1 bg-neutral-700 border border-neutral-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
                             placeholder="Contoh: JVYG-1-ABC123">
                         <button onclick="checkTicket()" id="btn-check"
-                            class="bg-purple-600 hover:bg-purple-700 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+                            class="bg-purple-600 hover:bg-purple-700 text-white font-medium px-6 py-3 rounded-lg transition-colors w-full md:w-auto">
                             Cek
                         </button>
                     </div>
@@ -157,11 +157,14 @@
             if (html5QrCode) return;
 
             html5QrCode = new Html5Qrcode("qr-reader");
-            html5QrCode.start(
-                { facingMode: "environment" },
-                {
+            html5QrCode.start({
+                    facingMode: "environment"
+                }, {
                     fps: 10,
-                    qrbox: { width: 250, height: 250 }
+                    qrbox: {
+                        width: 250,
+                        height: 250
+                    }
                 },
                 (decodedText) => {
                     // QR code scanned successfully
@@ -202,14 +205,16 @@
             showResultPanel();
             showLoading();
 
-            fetch('{{ route("pengelola.cek-tiket.check") }}', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                body: JSON.stringify({ kode: kode })
-            })
+            fetch('{{ route('pengelola.cek-tiket.check') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({
+                        kode: kode
+                    })
+                })
                 .then(response => response.json())
                 .then(data => {
                     hideLoading();
@@ -262,14 +267,16 @@
             // Status badge
             const statusBadge = document.getElementById('status-badge');
             if (data.is_scanned) {
-                statusBadge.innerHTML = '<div class="inline-flex items-center gap-2 bg-yellow-900/30 border border-yellow-700 rounded-full px-4 py-2">' +
+                statusBadge.innerHTML =
+                    '<div class="inline-flex items-center gap-2 bg-yellow-900/30 border border-yellow-700 rounded-full px-4 py-2">' +
                     '<i data-lucide="alert-circle" class="w-5 h-5 text-yellow-400"></i>' +
                     '<span class="text-yellow-400 font-semibold">Sudah Di-scan</span></div>';
                 document.getElementById('scanned-info').classList.remove('hidden');
                 document.getElementById('detail-scanned').textContent = data.scanned_at;
                 document.getElementById('action-buttons').classList.add('hidden');
             } else {
-                statusBadge.innerHTML = '<div class="inline-flex items-center gap-2 bg-green-900/30 border border-green-700 rounded-full px-4 py-2">' +
+                statusBadge.innerHTML =
+                    '<div class="inline-flex items-center gap-2 bg-green-900/30 border border-green-700 rounded-full px-4 py-2">' +
                     '<i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>' +
                     '<span class="text-green-400 font-semibold">Tiket Valid</span></div>';
                 document.getElementById('scanned-info').classList.add('hidden');
@@ -287,21 +294,23 @@
 
             const btn = document.getElementById('btn-mark-scanned');
             btn.disabled = true;
-            btn.innerHTML = '<div class="animate-spin rounded-full h-4 w-4 border-b-2 border-white inline-block mr-2"></div> Memproses...';
+            btn.innerHTML =
+                '<div class="animate-spin rounded-full h-4 w-4 border-b-2 border-white inline-block mr-2"></div> Memproses...';
 
-            fetch('{{ url("pengelola/cek-tiket") }}/' + currentTicketId + '/scan', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                }
-            })
+            fetch('{{ url('pengelola/cek-tiket') }}/' + currentTicketId + '/scan', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                })
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
                         // Update UI to show scanned state
                         const statusBadge = document.getElementById('status-badge');
-                        statusBadge.innerHTML = '<div class="inline-flex items-center gap-2 bg-green-900/30 border border-green-700 rounded-full px-4 py-2">' +
+                        statusBadge.innerHTML =
+                            '<div class="inline-flex items-center gap-2 bg-green-900/30 border border-green-700 rounded-full px-4 py-2">' +
                             '<i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>' +
                             '<span class="text-green-400 font-semibold">Berhasil Di-scan!</span></div>';
 
@@ -315,13 +324,15 @@
                     } else {
                         alert(data.message);
                         btn.disabled = false;
-                        btn.innerHTML = '<i data-lucide="check-circle" class="inline-block w-4 h-4 mr-2"></i> Tandai Sudah Scan';
+                        btn.innerHTML =
+                            '<i data-lucide="check-circle" class="inline-block w-4 h-4 mr-2"></i> Tandai Sudah Scan';
                     }
                 })
                 .catch(error => {
                     alert('Terjadi kesalahan saat memproses.');
                     btn.disabled = false;
-                    btn.innerHTML = '<i data-lucide="check-circle" class="inline-block w-4 h-4 mr-2"></i> Tandai Sudah Scan';
+                    btn.innerHTML =
+                        '<i data-lucide="check-circle" class="inline-block w-4 h-4 mr-2"></i> Tandai Sudah Scan';
                     console.error('Error:', error);
                 });
         }
