@@ -4,18 +4,24 @@
     <div class="space-y-6">
         <!-- Header -->
         <div>
+            {{-- <h1 class="text-2xl font-semibold text-gray-900">{{ $belumdisetujui }}</h1>
+            <h1 class="text-2xl font-semibold text-gray-900">{{ $pengunjunghari }}</h1>
+            <h1 class="text-2xl font-semibold text-gray-900">{{ $pendapatanhari }}</h1> --}}
             <h1 class="text-2xl font-semibold text-gray-900">Dasboard Pengelola</h1>
             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Selamat datang di dasboard Pengelola!</p>
         </div>
 
+
+        {{-- Harian --}}
+        <h2 class="text-xl font-semibold text-gray-900">Harian</h2>
         <!-- Stats Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- Card 1 -->
             <div class="bg-neutral-800 rounded-lg shadow p-6">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Jumlah Pengunjung</p>
-                        <p class="text-2xl font-bold text-gray-900 dark:text-white mt-2">{{ $jumlahpengunjung }}</p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Jumlah Pengunjung (Hari ini)</p>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white mt-2">{{ $pengunjunghari }}</p>
                     </div>
                     <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
                         <i data-lucide="users" class="size-6 text-blue-600 dark:text-blue-400"></i>
@@ -40,8 +46,8 @@
             <div class="bg-white dark:bg-neutral-800 rounded-lg shadow p-6">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Transaksi Berhasil</p>
-                        <p class="text-2xl font-bold text-gray-900 dark:text-white mt-2">{{ $transaksiberhasil }}</p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Transaksi Berhasil (Hari ini)</p>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white mt-2">{{ $transaksidisetujuihari }}</p>
                     </div>
                     <div class="p-3 bg-green-900/30 rounded-full">
                         <i data-lucide="circle-check-big" class="size-6 text-green-600 "></i>
@@ -53,8 +59,56 @@
             <div class="bg-white dark:bg-neutral-800 rounded-lg shadow p-6">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Total Pendapatan</p>
-                        <p class="text-2xl font-bold text-gray-900 dark:text-white mt-2">Rp. {{ $pendapatan }}</p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Total Pendapatan (Hari ini)</p>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white mt-2">Rp.
+                            {{ number_format($pendapatanhari, 0, ',', '.') }}</p>
+                    </div>
+                    <div class="p-3 bg-purple-900/30 rounded-full">
+                        <i data-lucide="dollar-sign" class="size-6 text-purple-600 "></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Mingguan --}}
+        <h2 class="text-xl font-semibold text-gray-900">Mingguan</h2>
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Card 1 -->
+            <div class="bg-neutral-800 rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Jumlah Pengunjung (Minggu ini)</p>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white mt-2">{{ $pengunjungminggu }}</p>
+                    </div>
+                    <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
+                        <i data-lucide="users" class="size-6 text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+
+            <!-- Card 3 -->
+            <div class="bg-white dark:bg-neutral-800 rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Transaksi Berhasil (Minggu ini)</p>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white mt-2">{{ $transaksidisetujuiminggu }}</p>
+                    </div>
+                    <div class="p-3 bg-green-900/30 rounded-full">
+                        <i data-lucide="circle-check-big" class="size-6 text-green-600 "></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-white dark:bg-neutral-800 rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Total Pendapatan (Minggu ini)</p>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white mt-2">Rp.
+                            {{ number_format($pendapatanminggu, 0, ',', '.') }}</p>
                     </div>
                     <div class="p-3 bg-purple-900/30 rounded-full">
                         <i data-lucide="dollar-sign" class="size-6 text-purple-600 "></i>
@@ -75,6 +129,114 @@
             <div class="bg-white dark:bg-neutral-800 rounded-lg shadow p-6">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4"> Jumlah Pengunjung Bulanan</h3>
                 <div id="barChart"></div>
+            </div>
+        </div>
+
+
+        {{-- Bulanan --}}
+        <h2 class="text-xl font-semibold text-gray-900">Bulanan</h2>
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Card 1 -->
+            <div class="bg-neutral-800 rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Jumlah Pengunjung (Bulan ini)</p>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white mt-2">{{ $pengunjungbulan }}</p>
+                    </div>
+                    <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
+                        <i data-lucide="users" class="size-6 text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+
+            <!-- Card 3 -->
+            <div class="bg-white dark:bg-neutral-800 rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Transaksi Berhasil (Bulan ini)</p>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white mt-2">{{ $transaksidisetujuibulan }}</p>
+                    </div>
+                    <div class="p-3 bg-green-900/30 rounded-full">
+                        <i data-lucide="circle-check-big" class="size-6 text-green-600 "></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-white dark:bg-neutral-800 rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Total Pendapatan (Bulan ini)</p>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white mt-2">Rp.
+                            {{ number_format($pendapatanbulan, 0, ',', '.') }}</p>
+                    </div>
+                    <div class="p-3 bg-purple-900/30 rounded-full">
+                        <i data-lucide="dollar-sign" class="size-6 text-purple-600 "></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-xl font-semibold text-gray-900">Keseluruhan</h2>
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Card 1 -->
+            <div class="bg-neutral-800 rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Jumlah Pengunjung(keseluruhan)</p>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white mt-2">{{ $jumlahpengunjung }}</p>
+                    </div>
+                    <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
+                        <i data-lucide="users" class="size-6 text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+
+            <!-- Card 3 -->
+            <div class="bg-white dark:bg-neutral-800 rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Transaksi Berhasil (keseluruhan)</p>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white mt-2">{{ $transaksiberhasil }}</p>
+                    </div>
+                    <div class="p-3 bg-green-900/30 rounded-full">
+                        <i data-lucide="circle-check-big" class="size-6 text-green-600 "></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-white dark:bg-neutral-800 rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Total Pendapatan (keseluruhan)</p>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white mt-2">Rp. {{ $pendapatan }}</p>
+                    </div>
+                    <div class="p-3 bg-purple-900/30 rounded-full">
+                        <i data-lucide="dollar-sign" class="size-6 text-purple-600 "></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row 1 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Line Chart -->
+            <div class="bg-white dark:bg-neutral-800 rounded-lg shadow p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Ringkasan Pendapatan</h3>
+                <div id="lineChartTahunan"></div>
+            </div>
+
+            <!-- Bar Chart -->
+            <div class="bg-white dark:bg-neutral-800 rounded-lg shadow p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4"> Jumlah Pengunjung Bulanan</h3>
+                <div id="barChartTahunan"></div>
             </div>
         </div>
 
@@ -147,7 +309,7 @@
                     }
                 }
             };
-            const lineChart = new ApexCharts(document.querySelector("#lineChart"), lineOptions);
+            const lineChart = new ApexCharts(document.querySelector("#lineChartTahunan"), lineOptions);
             lineChart.render();
 
             // Bar Chart
@@ -203,7 +365,7 @@
                     theme: isDark ? 'dark' : 'light'
                 }
             };
-            const barChart = new ApexCharts(document.querySelector("#barChart"), barOptions);
+            const barChart = new ApexCharts(document.querySelector("#barChartTahunan"), barOptions);
             barChart.render();
 
         });
