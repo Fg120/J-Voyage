@@ -18,7 +18,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans text-gray-900 antialiased bg-neutral-100 " >
+<body class="font-sans text-gray-900 antialiased bg-neutral-100 ">
+    @include('components.subnavbar')
     @yield('content')
     @include('components.onboarding.footer')
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -28,4 +29,3 @@
 </body>
 
 </html>
-

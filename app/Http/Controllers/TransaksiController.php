@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengelola;
 use App\Models\Transaksi;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class TransaksiController extends Controller
 {
@@ -116,4 +118,13 @@ class TransaksiController extends Controller
 
         return view('cobascan', compact('transaksi'));
     }
+
+    public function downloadPdf($id)
+{
+    $transaksi = Transaksi::with(['pengelola', 'user'])->findOrFail($id);
+    $qrcode = base64_encode(QrCode::format('svg')->size(120)->generate($transaksi->kode ?? 'TRX-'.$transaksi->id));
+    $pdf = Pdf::loadView('pdf.ticket', compact('transaksi', 'qrcode'));
+    $pdf->setPaper('A5', 'portrait');
+    return $pdf->download('E-Ticket-JVoyage-'.$transaksi->id.'.pdf');
+}
 }

@@ -8,20 +8,32 @@ use Illuminate\Http\Request;
 
 class PengelolaController extends Controller
 {
-    public function index(Request $request)
+   public function index(Request $request)
     {
+        // 1. Siapkan Query Dasar dengan Relasi
         $query = Pengelola::with(['user', 'kecamatan', 'desa']);
 
-        // Filter by status
-        if ($request->has('status') && $request->status !== 'all') {
+        if ($request->filled('status') && $request->status !== 'all') {
             $query->where('status', $request->status);
         }
+        if ($request->filled('search')) {
+            $search = $request->search;
 
-        $pengelolas = $query->latest()->paginate(10);
+            $query->where(function($q) use ($search) {
+                $q->where('nama_wisata', 'LIKE', '%' . $search . '%')
+                  ->orWhereHas('user', function($userQuery) use ($search) {
+                      $userQuery->where('name', 'LIKE', '%' . $search . '%')
+                                ->orWhere('email', 'LIKE', '%' . $search . '%');
+                  });
+            });
+        }
+
+        $pengelolas = $query->latest()
+                            ->paginate(10)
+                            ->withQueryString();
 
         return view('admin.pengelola.index', compact('pengelolas'));
     }
-
     public function show(Pengelola $pengelola)
     {
         $pengelola->load(['user', 'kecamatan', 'desa']);

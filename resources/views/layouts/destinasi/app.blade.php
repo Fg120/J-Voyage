@@ -20,20 +20,7 @@
 
 <body class="font-sans text-gray-900 antialiased bg-neutral-100 ">
     <div class="bg-[#FAFAFA] min-h-screen pb-20 font-poppins">
-        <!-- Header / Back Button -->
-        <div class="bg-neutral-900 text-white   py-4 px-4 lg:px-24 sticky top-0 z-50">
-            <a href="{{ route('onboarding') }}"
-                class="inline-flex items-center gap-2 text-[#404040] hover:text-indigo-600 transition ">
-                <div class="border-2 border-[#404040] rounded-full p-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                        fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 12H5" />
-                        <path d="m12 19-7-7 7-7" />
-                    </svg>
-                </div>
-                <span class="font-semibold text-white">Kembali</span>
-            </a>
-        </div>
+        @include('components.subnavbar')
 
         <!-- Hero Section -->
         <div class="relative w-full h-[400px]">

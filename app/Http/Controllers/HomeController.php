@@ -36,12 +36,22 @@ class HomeController extends Controller
 
         $search = $request->searchdestination;
         $destinasi = Pengelola::with(['desa', 'kecamatan'])
-            ->where('status', 'approved')
-            ->when($request->searchdestination, function ($query, $search) {
-                return $query->where('nama_wisata', 'LIKE', '%'.$search.'%');
-            })
-            ->latest()
-            ->paginate(8);
+        ->where('status', 'approved') // Syarat 1: Harus Approved
+        ->when($search, function ($query, $search) {
+            $query->where(function($q) use ($search) {
+
+                $q->where('nama_wisata', 'LIKE', '%'.$search.'%')
+                ->orWhere('alamat_wisata', 'LIKE', '%'.$search.'%')
+                ->orWhereHas('kecamatan', function($subQuery) use ($search) {
+                    $subQuery->where('nama', 'LIKE', '%'.$search.'%');
+                })
+                ->orWhereHas('desa', function($subQuery) use ($search) {
+                    $subQuery->where('nama', 'LIKE', '%'.$search.'%');
+                });
+            });
+        })
+        ->latest()
+        ->paginate(8);
 
         return view('destinasi.showmore', compact('destinasi'));
     }

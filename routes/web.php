@@ -111,9 +111,12 @@ Route::middleware('auth')->group(function () {
     // API untuk dropdown desa berdasarkan kecamatan
     Route::get('/api/desa/{kecamatan_id}', [PengelolaController::class, 'getDesa']);
 
+    // tambah ulasan
     Route::get('/destinasi/ulasan/{id}/store', [\App\Http\Controllers\UlasanController::class, 'index'])->name('ulasan.index');
     Route::post('/destinasi/ulasan/{id}/store', [\App\Http\Controllers\UlasanController::class, 'store'])->name('ulasan.store');
 
+    // download tiket
+    Route::get('/transaksi/{id}/download', [\App\Http\Controllers\TransaksiController::class, 'downloadPdf'])->name('transaksi.download');
 });
 
 require __DIR__ . '/auth.php';

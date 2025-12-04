@@ -1,44 +1,35 @@
-@extends('layouts.public.sub')
+@extends('layouts.public.sub', ['backUrl' => route('profile.history')])
 
 @section('content')
     <div class="bg-[#FAFAFA] min-h-screen font-poppins pb-20">
-
-        <div class="bg-neutral-900 text-white py-4 px-4 lg:px-24 sticky top-0 z-50">
-            <a href="{{ route('profile.history') }}"
-                class="inline-flex items-center gap-2 text-[#404040] hover:text-indigo-400 transition">
-                <div class="border-2 border-white/20 rounded-full p-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 12H5" />
-                        <path d="m12 19-7-7 7-7" />
-                    </svg>
-                </div>
-                <span class="font-semibold text-white">Kembali</span>
-            </a>
-        </div>
 
         <div class="flex flex-col items-center mx-auto w-full max-w-2xl mt-5 px-4">
 
             <div class="w-full bg-white rounded-[30px] shadow-2xl overflow-hidden relative">
 
                 {{-- 1. BAGIAN ATAS (BIRU) --}}
-                <div class="bg-[#5D5FEF] p-6 pb-24 md:p-8 md:pb-28 relative"> {{-- pb-24 ditambahkan agar ada ruang untuk QR
+                <div class="bg-gradient-to-br from-indigo-600 to-violet-700 p-6 md:px-10 md:pb-24 relative overflow-hidden">
+                    {{-- pb-24 ditambahkan agar ada ruang untuk QR
                     Code --}}
 
                     {{-- Header Info: Logo & Booking ID --}}
-                    <div class="flex justify-between items-start mb-6 text-white">
-                        <div class="flex items-center gap-3">
-                            <div class="bg-white/20 p-2 rounded-full backdrop-blur-sm">
-                                <img class="w-6 h-6 object-contain" src="{{ asset('assets/images/logo.png') }}" alt="Logo">
+                    <div
+                        class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center mb-8 text-white">
+                        <div class="flex items-center gap-3 mb-4 md:mb-0">
+                            {{-- Icon Logo --}}
+                            <div class="bg-white/20 p-2 rounded-xl backdrop-blur-sm border border-white/20">
+                                <img class="w-8 h-auto" src="{{ asset('assets/images/logo.png') }}" alt="Logo">
                             </div>
                             <div>
-                                <h1 class="font-bold text-lg leading-none">J-Voyage</h1>
-                                <span class="text-[10px] text-indigo-100">E-Ticket Wisata</span>
+                                <h1 class="font-bold text-xl leading-none tracking-tight">J-Voyage</h1>
+                                <span class="text-[11px] text-indigo-100 uppercase tracking-wider">Official
+                                    E-Ticket</span>
                             </div>
                         </div>
-                        <div class="text-right">
+                        <div
+                            class="text-left md:text-right bg-white/10 md:bg-transparent p-3 md:p-0 rounded-lg w-full md:w-auto border border-white/10 md:border-none">
                             <span class="block text-[10px] text-indigo-200 uppercase tracking-wider">Transaksi ID</span>
-                            <span class="font-bold text-base tracking-widest">{{ $transaksi->id}}</span>
+                            <span class="font-mono font-bold text-lg tracking-widest">{{ $transaksi->id }}</span>
                         </div>
                     </div>
 
@@ -52,7 +43,7 @@
 
                     {{-- Judul Wisata & Lokasi --}}
                     <div class="text-white relative z-10">
-                        <h2 class="text-2xl md:text-3xl font-bold mb-1">{{$transaksi->pengelola->nama_wisata}}</h2>
+                        <h2 class="text-2xl md:text-3xl font-bold mb-1">{{ $transaksi->pengelola->nama_wisata }}</h2>
                         <div class="flex items-center gap-1.5 text-indigo-100 text-sm">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -77,12 +68,13 @@
                     </div>
 
                     {{-- Status Tiket Di-scan --}}
-                    @if($transaksi->scanned_at)
+                    @if ($transaksi->scanned_at)
                         <div class="mt-3 bg-amber-100 border border-amber-300 rounded-xl px-4 py-3 flex items-center gap-3">
                             <div class="bg-amber-500 rounded-full p-1.5">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
                                 </svg>
                             </div>
                             <div>
@@ -176,18 +168,23 @@
                     </div>
 
                     {{-- 5. TOMBOL DOWNLOAD --}}
-                    <div class="mt-6">
-                        <button onclick="//window.print()"
-                            class="w-full flex justify-center items-center gap-2 bg-gray-100 hover:bg-gray-200 text-neutral-800 font-bold py-4 rounded-xl transition duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                                <polyline points="7 10 12 15 17 10" />
-                                <line x1="12" x2="12" y1="15" y2="3" />
-                            </svg>
-                            Download Tiket
-                        </button>
-                    </div>
+                    @if (!$transaksi->scanned_at)
+                        <div class="mt-6">
+                            <a href="{{ route('transaksi.download', $transaksi->id) }}"
+                                class="w-full flex justify-center items-center gap-3 bg-gray-900 hover:bg-black text-white font-bold py-4 rounded-xl transition duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-decoration-none">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" x2="12" y1="15" y2="3" />
+                                </svg>
+                                Download PDF Tiket
+                            </a>
+                        </div>
+                    @endif
+
 
                 </div>
             </div>
