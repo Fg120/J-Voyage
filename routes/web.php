@@ -61,7 +61,7 @@ Route::prefix('pengelola')->name('pengelola.')->middleware(['auth', 'role:pengel
     Route::put('/profile', [\App\Http\Controllers\Pengelola\ProfileController::class, 'update'])->name('profile.update');
 
     // Highlights & Fasilitas
-    Route::resource('highlight', \App\Http\Controllers\Pengelola\HighlightController::class)->except(['create', 'edit', 'show']);
+    Route::resource('highlight', \App\Http\Controllers\Pengelola\HighlightController::class)->except(['create', 'edit','show']);
     Route::resource('fasilitas', \App\Http\Controllers\Pengelola\FasilitasController::class)->except(['create', 'edit', 'show']);
 
     // Transaksi Manager

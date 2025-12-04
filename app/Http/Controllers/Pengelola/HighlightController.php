@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pengelola;
 use App\Http\Controllers\Controller;
 use App\Models\Highlight;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HighlightController extends Controller
 {
@@ -29,12 +30,12 @@ class HighlightController extends Controller
             ->with('success', 'Highlight berhasil ditambahkan!');
     }
 
-    public function update(Request $request, Highlight $highlight)
+   public function update(Request $request, $id)
     {
-        // Ensure the highlight belongs to the logged-in pengelola
-        if ($highlight->pengelola_id !== auth()->user()->pengelola->id) {
-            abort(403);
-        }
+        // Cari highlight dan pastikan milik user yang login
+        $highlight = Highlight::where('id', $id)
+            ->where('pengelola_id', Auth::user()->pengelola->id)
+            ->firstOrFail();
 
         $request->validate([
             'nama' => 'required|string|max:255',
@@ -44,8 +45,7 @@ class HighlightController extends Controller
             'nama' => $request->nama,
         ]);
 
-        return redirect()->route('pengelola.highlight.index')
-            ->with('success', 'Highlight berhasil diperbarui!');
+        return redirect()->back()->with('success', 'Highlight berhasil diperbarui!');
     }
 
     public function destroy(Highlight $highlight)

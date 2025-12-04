@@ -10,6 +10,17 @@
             <p class="text-sm text-gray-600">Masuk ke akun Anda untuk melanjutkan</p>
         </div>
 
+        @if (session('success'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                {{ session('error') }}
+            </div>
+        @endif
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -17,8 +28,8 @@
                 <!-- Email -->
                 <div class="flex flex-col gap-1">
                     <label for="email" class="font-semibold text-sm">Email</label>
-                    <input type="email" placeholder="nama@email.com" id="email" name="email" value="{{ old('email') }}"
-                        required autofocus autocomplete="email"
+                    <input type="email" placeholder="nama@email.com" id="email" name="email"
+                        value="{{ old('email') }}" required autofocus autocomplete="email"
                         class="border-gray-300 rounded-lg py-2.5 px-3 focus:border-indigo-500 focus:ring focus:ring-indigo-200 transition">
                     @error('email')
                         <div class="error text-red-600">{{ $message }}</div>
@@ -110,7 +121,8 @@
             <div class="flex justify-center">
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}" class="text-sm  ">Belum Punya Akun? <span
-                            class="text-indigo-500 font-semibold hover:text-indigo-700 transition">Daftar Sekarang </span> </a>
+                            class="text-indigo-500 font-semibold hover:text-indigo-700 transition">Daftar Sekarang </span>
+                    </a>
                 @endif
             </div>
 
