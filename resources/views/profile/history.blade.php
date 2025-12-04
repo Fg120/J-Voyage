@@ -34,7 +34,7 @@
                                     </h4>
                                     <p class="text-sm text-[#525252]">Transaction ID: #{{ $item->id }}</p>
                                 </div>
-                                <div>
+                                <div class="flex flex-wrap gap-2">
                                     @if ($item->status == 'pending')
                                         <span
                                             class="bg-orange-100 text-orange-600 px-4 py-2 rounded-full text-xs font-semibold">Menunggu
@@ -45,6 +45,15 @@
                                     @elseif($item->status == 'rejected')
                                         <span
                                             class="bg-red-100 text-red-600 px-4 py-2 rounded-full text-xs font-semibold">Ditolak</span>
+                                    @endif
+                                    
+                                    @if($item->scanned_at)
+                                        <span class="bg-amber-100 text-amber-700 px-4 py-2 rounded-full text-xs font-semibold flex items-center gap-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                            Sudah Di-scan
+                                        </span>
                                     @endif
                                 </div>
                             </div>

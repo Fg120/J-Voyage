@@ -60,6 +60,11 @@ Route::prefix('pengelola')->name('pengelola.')->middleware(['auth', 'role:pengel
 
     // review
     Route::get('/review', [\App\Http\Controllers\Pengelola\ReviewController::class, 'index'])->name('review.index');
+
+    // Cek Tiket
+    Route::get('/cek-tiket', [\App\Http\Controllers\Pengelola\CekTiketController::class, 'index'])->name('cek-tiket.index');
+    Route::post('/cek-tiket/check', [\App\Http\Controllers\Pengelola\CekTiketController::class, 'check'])->name('cek-tiket.check');
+    Route::post('/cek-tiket/{id}/scan', [\App\Http\Controllers\Pengelola\CekTiketController::class, 'markScanned'])->name('cek-tiket.scan');
 });
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('onboarding');
@@ -99,4 +104,4 @@ Route::middleware('auth')->group(function () {
 
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
