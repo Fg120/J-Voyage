@@ -29,6 +29,12 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $user = Auth::user();
+
+        // Assign user role if user has no roles
+        if ($user->roles->isEmpty()) {
+            $user->assignRole('user');
+        }
+
         if ($user->hasRole('admin')) {
             return redirect()->intended(route('admin.dashboard', absolute: false));
         } elseif ($user->hasRole('pengelola')) {

@@ -8,9 +8,16 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 // REDIRECT ROUTES
-Route::get('/admin', function () {
-    return redirect()->route('admin.dashboard');
-});
+Route::middleware('auth')->get('/admin', function () {
+    $user = \Illuminate\Support\Facades\Auth::user();
+    if ($user->hasRole('admin')) {
+        return redirect()->route('admin.dashboard');
+    } elseif ($user->hasRole('pengelola')) {
+        return redirect()->route('pengelola.dashboard');
+    }
+
+    return redirect()->route('onboarding');
+})->name('admin');
 
 Route::middleware('auth')->get('/dashboard', function () {
     $user = \Illuminate\Support\Facades\Auth::user();
