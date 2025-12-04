@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="bg-neutral-800 rounded-xl shadow-sm p-6">
-        <h2 class="text-2xl font-bold text-white">Review Pelanggan</h2>
+        <h2 class="text-2xl font-bold text-white mb-6">Review Pelanggan</h2>
         <div class="grid grid-cols-1 md:grid-cols-2  gap-4">
             <!-- Card 1 -->
-            <div class="bg-neutral-800 rounded-lg shadow p-6">
+            <div class="bg-neutral-700/50 rounded-lg shadow p-6 border border-neutral-600">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Rating</p>
@@ -19,7 +19,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class=" bg-neutral-800 rounded-lg shadow p-6">
+            <div class=" bg-neutral-700/50 rounded-lg shadow p-6 border border-neutral-600">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Jumlah Ulasan</p>

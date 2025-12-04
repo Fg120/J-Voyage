@@ -38,11 +38,16 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
     Route::post('pengelola/{pengelola}/reject', [AdminPengelolaController::class, 'reject'])->name('pengelola.reject');
     Route::post('pengelola/{pengelola}/block', [AdminPengelolaController::class, 'block'])->name('pengelola.block');
     Route::post('pengelola/{pengelola}/unblock', [AdminPengelolaController::class, 'unblock'])->name('pengelola.unblock');
+
+    // Manajemen Review
+    Route::resource('review', \App\Http\Controllers\Admin\ReviewController::class)->only(['index', 'show', 'destroy']);
+
 });
 
 // PENGELOLA ROUTES
 Route::prefix('pengelola')->name('pengelola.')->middleware(['auth', 'role:pengelola'])->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\Pengelola\DashboardController::class, 'index'])->name('dashboard');
+
     // Profile Usaha
     Route::get('/profile', [\App\Http\Controllers\Pengelola\ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile/edit', [\App\Http\Controllers\Pengelola\ProfileController::class, 'edit'])->name('profile.edit');
