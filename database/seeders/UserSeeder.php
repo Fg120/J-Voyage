@@ -16,28 +16,28 @@ class UserSeeder extends Seeder
         $users = [
             [
                 'name' => 'Admin User',
-                'email' => 'admin@example.com',
+                'email' => 'admin@jvoyage.com',
                 'password' => Hash::make('password'),
                 'email_verified_at' => now(),
                 'role' => 'admin',
             ],
             [
                 'name' => 'Pengelola User',
-                'email' => 'pengelola@example.com',
+                'email' => 'pengelola@jvoyage.com',
                 'password' => Hash::make('password'),
                 'email_verified_at' => now(),
                 'role' => 'pengelola',
             ],
             [
                 'name' => 'Regular User',
-                'email' => 'user@example.com',
+                'email' => 'user@jvoyage.com',
                 'password' => Hash::make('password'),
                 'email_verified_at' => now(),
                 'role' => 'user',
             ],
             [
                 'name' => 'Test User',
-                'email' => 'test@example.com',
+                'email' => 'test@jvoyage.com',
                 'password' => Hash::make('password'),
                 'email_verified_at' => now(),
                 'role' => 'user',
