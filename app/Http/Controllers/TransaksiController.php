@@ -67,14 +67,13 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::findOrFail($id);
 
         $request->validate([
-            'metode_pembayaran' => 'required|string',
             'bukti_pembayaran' => 'required|file|image|mimes:jpeg,png,jpg,pdf|max:2048',
         ]);
 
         $path = $request->file('bukti_pembayaran')->store('transaksi/bukti', 'public');
 
         $transaksi->update([
-            'metode_pembayaran' => $request->metode_pembayaran,
+            'metode_pembayaran' => "Transfer",
             'bukti_pembayaran' => $path,
             // Status remains pending until approved by manager
         ]);
