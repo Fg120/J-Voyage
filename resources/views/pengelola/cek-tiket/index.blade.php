@@ -125,12 +125,54 @@
         </div>
     </div>
 
-    <!-- Include HTML5 QR Code Library -->
-    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
-
+    <!-- Include HTML5 QR Code Library with fallback -->
     <script>
         let html5QrCode = null;
         let currentTicketId = null;
+        let qrLibraryLoaded = false;
+
+        // Load Html5Qrcode library dynamically with fallback CDNs
+        function loadQrLibrary() {
+            return new Promise((resolve, reject) => {
+                if (typeof Html5Qrcode !== 'undefined') {
+                    qrLibraryLoaded = true;
+                    resolve();
+                    return;
+                }
+
+                const cdnUrls = [
+                    'https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js',
+                    'https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js',
+                    'https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js'
+                ];
+
+                function tryLoadScript(index) {
+                    if (index >= cdnUrls.length) {
+                        reject(new Error('Failed to load QR library from all CDNs'));
+                        return;
+                    }
+
+                    const script = document.createElement('script');
+                    script.src = cdnUrls[index];
+                    script.onload = () => {
+                        qrLibraryLoaded = true;
+                        resolve();
+                    };
+                    script.onerror = () => {
+                        console.warn('Failed to load from:', cdnUrls[index]);
+                        tryLoadScript(index + 1);
+                    };
+                    document.head.appendChild(script);
+                }
+
+                tryLoadScript(0);
+            });
+        }
+
+        // Preload the library on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            loadQrLibrary().catch(err => console.warn('QR Library preload failed:', err));
+        });
 
         function switchTab(tab) {
             // Update tab buttons
@@ -156,32 +198,55 @@
         function startQrScanner() {
             if (html5QrCode) return;
 
-            html5QrCode = new Html5Qrcode("qr-reader");
-            html5QrCode.start({
-                    facingMode: "environment"
-                }, {
-                    fps: 10,
-                    qrbox: {
-                        width: 250,
-                        height: 250
-                    }
-                },
-                (decodedText) => {
-                    // QR code scanned successfully
-                    stopQrScanner();
-                    checkTicketByCode(decodedText);
-                },
-                (errorMessage) => {
-                    // Ignore scan errors
-                }
-            ).catch((err) => {
-                console.error("Unable to start QR scanner:", err);
-                document.getElementById('qr-reader').innerHTML =
-                    '<div class="bg-red-900/30 border border-red-700 rounded-lg p-4 text-center">' +
-                    '<p class="text-red-400">Tidak dapat mengakses kamera.</p>' +
-                    '<p class="text-red-300 text-sm mt-1">Pastikan Anda telah memberikan izin akses kamera.</p>' +
-                    '</div>';
-            });
+            const qrReader = document.getElementById('qr-reader');
+
+            // Show loading state
+            qrReader.innerHTML =
+                '<div class="text-center py-8">' +
+                '<div class="animate-spin rounded-full h-10 w-10 border-b-2 border-purple-500 mx-auto"></div>' +
+                '<p class="text-gray-400 mt-3">Memuat scanner...</p>' +
+                '</div>';
+
+            // Load library if not loaded yet
+            loadQrLibrary()
+                .then(() => {
+                    qrReader.innerHTML = ''; // Clear loading state
+
+                    html5QrCode = new Html5Qrcode("qr-reader");
+                    html5QrCode.start({
+                        facingMode: "environment"
+                    }, {
+                        fps: 10,
+                        qrbox: {
+                            width: 250,
+                            height: 250
+                        }
+                    },
+                        (decodedText) => {
+                            // QR code scanned successfully
+                            stopQrScanner();
+                            checkTicketByCode(decodedText);
+                        },
+                        (errorMessage) => {
+                            // Ignore scan errors
+                        }
+                    ).catch((err) => {
+                        console.error("Unable to start QR scanner:", err);
+                        qrReader.innerHTML =
+                            '<div class="bg-red-900/30 border border-red-700 rounded-lg p-4 text-center">' +
+                            '<p class="text-red-400">Tidak dapat mengakses kamera.</p>' +
+                            '<p class="text-red-300 text-sm mt-1">Pastikan Anda telah memberikan izin akses kamera.</p>' +
+                            '</div>';
+                    });
+                })
+                .catch((err) => {
+                    console.error("Failed to load QR library:", err);
+                    qrReader.innerHTML =
+                        '<div class="bg-red-900/30 border border-red-700 rounded-lg p-4 text-center">' +
+                        '<p class="text-red-400">Gagal memuat library QR Scanner.</p>' +
+                        '<p class="text-red-300 text-sm mt-1">Silakan refresh halaman atau gunakan input teks.</p>' +
+                        '</div>';
+                });
         }
 
         function stopQrScanner() {
@@ -206,15 +271,15 @@
             showLoading();
 
             fetch('{{ route('pengelola.cek-tiket.check') }}', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    body: JSON.stringify({
-                        kode: kode
-                    })
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({
+                    kode: kode
                 })
+            })
                 .then(response => response.json())
                 .then(data => {
                     hideLoading();
@@ -298,12 +363,12 @@
                 '<div class="animate-spin rounded-full h-4 w-4 border-b-2 border-white inline-block mr-2"></div> Memproses...';
 
             fetch('{{ url('pengelola/cek-tiket') }}/' + currentTicketId + '/scan', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    }
-                })
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            })
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
