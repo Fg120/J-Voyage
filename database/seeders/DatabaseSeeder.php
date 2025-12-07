@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            PermissionSeeder::class,
             RoleSeeder::class,
             WilayahSeeder::class,
             UserSeeder::class,
@@ -46,7 +45,7 @@ class DatabaseSeeder extends Seeder
 
             $user = User::create([
                 'name' => $faker->name,
-                'email' => $faker->unique()->userName.'@gmail.com',
+                'email' => $faker->unique()->userName . '@gmail.com',
                 'password' => Hash::make('password'),
                 'telepon' => $faker->phoneNumber,
                 'email_verified_at' => now(),
@@ -58,7 +57,7 @@ class DatabaseSeeder extends Seeder
             $desaID = $desa ? $desa->id : null;
 
             $prefix = $faker->randomElement(['Wisata', 'Pantai', 'Bukit', 'Kampung', 'Taman', 'Pemandian']);
-            $namaWisata = $prefix.' '.$faker->citySuffix.' '.$faker->firstName;
+            $namaWisata = $prefix . ' ' . $faker->citySuffix . ' ' . $faker->firstName;
 
             $pengelola = Pengelola::create([
                 'user_id' => $user->id,
@@ -94,41 +93,41 @@ class DatabaseSeeder extends Seeder
 
         $listUserID = User::pluck('id')->toArray();
         // --- F. BUAT ULASAN (BARU) ---
-            // Membuat 5 sampai 15 ulasan random per wisata
-            $jumlahUlasan = $faker->numberBetween(5, 15);
+        // Membuat 5 sampai 15 ulasan random per wisata
+        $jumlahUlasan = $faker->numberBetween(5, 15);
 
-            for ($i = 0; $i < $jumlahUlasan; $i++) {
-                // Pilih user acak dari list untuk jadi reviewer
-                // (Menggunakan array_rand atau randomElement)
-                $reviewerId = $faker->randomElement($listUserID);
+        for ($i = 0; $i < $jumlahUlasan; $i++) {
+            // Pilih user acak dari list untuk jadi reviewer
+            // (Menggunakan array_rand atau randomElement)
+            $reviewerId = $faker->randomElement($listUserID);
 
-                // Opsional: Cek agar pemilik tidak mereview wisatanya sendiri
-                if ($reviewerId == $user->id && count($listUserID) > 1) {
-                    continue;
-                }
-
-                // Kata-kata ulasan random
-                $komentar = $faker->randomElement([
-                    'Tempatnya sangat bagus dan bersih!',
-                    'Pemandangan indah, tapi akses jalan agak susah.',
-                    'Fasilitas lengkap, cocok untuk keluarga.',
-                    'Tiket murah meriah, worth it banget!',
-                    'Sangat merekomendasikan tempat ini.',
-                    'Toiletnya bersih, musholla nyaman.',
-                    'Parkiran luas, aman.',
-                    'Kurang terawat sedikit, tapi oke lah.',
-                    'Best view in Jember!',
-                    'Makanan di kantinnya enak-enak.'
-                ]);
-
-                Ulasan::create([
-                    'user_id' => $reviewerId,
-                    'pengelola_id' => $pengelola->id,
-                    'rating' => $faker->numberBetween(3, 5), // Rating antara 3 sampai 5 biar kelihatan bagus
-                    'ulasan' => $komentar . ' ' . $faker->sentence(), // Gabung template + kalimat random
-                    'created_at' => $faker->dateTimeBetween('-1 year', 'now'), // Tanggal acak 1 tahun terakhir
-                ]);
+            // Opsional: Cek agar pemilik tidak mereview wisatanya sendiri
+            if ($reviewerId == $user->id && count($listUserID) > 1) {
+                continue;
             }
+
+            // Kata-kata ulasan random
+            $komentar = $faker->randomElement([
+                'Tempatnya sangat bagus dan bersih!',
+                'Pemandangan indah, tapi akses jalan agak susah.',
+                'Fasilitas lengkap, cocok untuk keluarga.',
+                'Tiket murah meriah, worth it banget!',
+                'Sangat merekomendasikan tempat ini.',
+                'Toiletnya bersih, musholla nyaman.',
+                'Parkiran luas, aman.',
+                'Kurang terawat sedikit, tapi oke lah.',
+                'Best view in Jember!',
+                'Makanan di kantinnya enak-enak.'
+            ]);
+
+            Ulasan::create([
+                'user_id' => $reviewerId,
+                'pengelola_id' => $pengelola->id,
+                'rating' => $faker->numberBetween(3, 5), // Rating antara 3 sampai 5 biar kelihatan bagus
+                'ulasan' => $komentar . ' ' . $faker->sentence(), // Gabung template + kalimat random
+                'created_at' => $faker->dateTimeBetween('-1 year', 'now'), // Tanggal acak 1 tahun terakhir
+            ]);
+        }
         $this->command->info('✅ Selesai! 50 Data User & Pengelola berhasil dibuat.');
     }
 }
